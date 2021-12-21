@@ -1,0 +1,38 @@
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  background: linear-gradient(
+    90deg,
+    rgb(154, 119, 177) 0%,
+    rgb(184, 125, 166) 81%
+  );
+  color: white;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 20;
+  -webkit-box-shadow: 0px 10px 13px 7px #000000,
+    0px 0px 5px 0px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px 7px #000000, 0px 0px 5px 0px rgba(0, 0, 0, 0);
+}
+
+.columsFooter {
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 5px;
+}
+
+.columsFooter p {
+  margin-bottom: 2px;
+}
+.footer svg {
+  width: 1.8em;
+  height: 1.8em;
+  margin: 5px;
+  margin-top: 0;
+  fill: currentcolor;
+}
+.columsFooter a {
+  text-decoration: none;
+  color: initial;
+}

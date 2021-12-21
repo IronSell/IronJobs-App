@@ -1,0 +1,115 @@
+.CompanyView {
+      padding-top: 70px;
+}
+
+@media (min-width: 992px) {
+  .CompanyView {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .company-logo-container {
+    margin-top: 20px;
+    margin-right: 20px;
+    height: 280px;
+    width: 340px;
+    border: 1px solid rgb(238, 238, 238);
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 8px -5px #000000;
+    box-shadow: 0px 0px 8px -5px #000000;
+  }
+
+  .company-logo {
+    width: 250px;
+    height: 180px;
+    margin-top: 10px;
+    border-radius: 3px;
+    object-fit: contain;
+    padding-bottom: -20px;
+  }
+
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  span .icon {
+    padding: 0 10px 0 10px;
+    vertical-align: middle;
+    margin-bottom: 5px;
+  }
+
+  .info-container {
+    text-align: left;
+    margin-top: 20px;
+    padding-top: 20px;
+    height: max-content;
+    width: 900px;
+    border: 1px solid rgb(238, 238, 238);
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 8px -5px #000000;
+    box-shadow: 0px 0px 8px -5px #000000;
+  }
+
+  .info-container .ant-descriptions-title {
+    text-align: center;
+  }
+
+  .media-container {
+    margin-top: 20px;
+    margin-right: 20px;
+    height: fit-content;
+    width: 340px;
+    border: 1px solid rgb(238, 238, 238);
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 8px -5px #000000;
+    box-shadow: 0px 0px 8px -5px #000000;
+  }
+
+  .offers-container {
+    margin-top: 20px;
+    height: fit-content;
+    width: 900px;
+    border: 1px solid rgb(238, 238, 238);
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 8px -5px #000000;
+    box-shadow: 0px 0px 8px -5px #000000;
+  }
+
+  .company-description {
+    border-color: transparent !important;
+  }
+
+  .company-description p {
+    word-spacing: .5px;
+    text-align: justify;
+  }
+}
+
+/* @media (max-width: 991px) {
+
+  .CompanyView {
+    margin-top: 20px;
+    height: 200px;
+    width: 200px;
+    border: 1px solid rgb(238, 238, 238);
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 10px -5px #000000;
+    box-shadow: 0px 0px 10px -5px #000000;
+  }
+
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .company-logo {
+    width: auto;
+    height: 100px;
+    margin-top: 15px;
+    border-radius: 3px;
+  }
+} */

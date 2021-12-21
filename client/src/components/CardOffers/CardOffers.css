@@ -1,0 +1,23 @@
+.ant-card-hoverable {
+  cursor: pointer;
+  transition: box-shadow 0.3s, border-color 0.3s;
+  border: 1.5px rgb(238, 238, 238) solid;
+  padding: 10px;
+  margin-bottom: 13px;
+}
+
+.companyOffer {
+  display: flex;
+  text-align: left;
+}
+
+.space {
+  color: #76cacc !important;
+  justify-content: space-evenly;
+  padding-left: 40px;
+  font-weight: bold;
+}
+.space span {
+  vertical-align: top;
+  padding: 4px 2px 0 2.5px;
+}

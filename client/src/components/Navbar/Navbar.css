@@ -1,0 +1,83 @@
+nav {
+  background: linear-gradient(
+    90deg,
+    rgb(154, 119, 177) 0%,
+    rgb(184, 125, 166) 81%
+  );
+  font-weight: 600;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+  -webkit-box-shadow: 0px 10px 13px -13px #000000,
+    0px 0px 5px 0px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -13px #000000, 0px 0px 5px 0px rgba(0, 0, 0, 0);
+}
+
+ul .links {
+  display: flex;
+}
+
+ul .access-buttons {
+  display: flex;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+nav li {
+  padding-left: 30px;
+}
+
+.nav__projectName {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.authLink {
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+.OfferAndCompanyColor {
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.authLink + .authLink {
+  padding: 1em;
+}
+
+.authLink:hover {
+  color: #ffffff;
+}
+
+.nav-logoutbtn {
+  font-family: inherit;
+  font-weight: inherit;
+  padding: 0.5em 1em;
+  margin-left: 1em;
+  background-color: #5595ff;
+  box-shadow: 0 0 5px 0 aliceblue;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  color: #e3f2ff;
+  transition: all 0.2s ease-in-out;
+  position: sticky;
+  top: 0;
+}
+
+.nav-logoutbtn:hover {
+  transform: scale(1.05);
+  background-color: #d13e3e;
+}
