@@ -1,4 +1,4 @@
-import './SignUpCandidate.styles.css';
+import '../SignUpCandidateForm/SignUpCandidate.styles.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signup } from '../../services/auth';

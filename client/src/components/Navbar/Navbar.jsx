@@ -55,7 +55,7 @@ const Navbar = (props) => {
                 </li>
                 <li>
                   <Link
-                    to={PATHS.EDITCOMPANYPAGE}
+                    to={PATHS.EDITCOMPANYPROFILE}
                     className='OfferAndCompanyColor'
                   >
                     Edit profile

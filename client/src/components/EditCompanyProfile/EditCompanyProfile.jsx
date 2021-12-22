@@ -1,4 +1,4 @@
-import './SignUpCompanyForm.styles.css';
+import '../SignUpCompanyForm/SignUpCompanyForm.styles.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signupCompany } from '../../services/auth';

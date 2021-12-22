@@ -14,6 +14,7 @@ import CandidateProfile from '../pages/CandidateProfilePage/CandidateProfilePage
 import * as PATHS from '../utils/paths';
 import EditCompanyPage from '../pages/EditCompanyPage/EditCompanyPage'
 import EditCandidatePage from '../pages/EditCandidatePage/EditCandidatePage';
+
 const routes = (props) => {
   const { user } = props;
   return [
@@ -74,11 +75,11 @@ const routes = (props) => {
       element: <LoginCompanyPage {...props} />,
     },
     {
-      path: PATHS.EDITCOMPANYPAGE,
+      path: PATHS.EDITCOMPANYPROFILE,
       element: <EditCompanyPage {...props} />,
     },
     {
-      path: PATHS.EDITCANDIDATEPAGE,
+      path: PATHS.EDITCANDIDATEPROFILE,
       element: <EditCandidatePage {...props} />,
     },
   ];

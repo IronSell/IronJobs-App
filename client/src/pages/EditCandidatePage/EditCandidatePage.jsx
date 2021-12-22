@@ -1,6 +1,6 @@
 
 import EditCandidateProfile from '../../components/EditCandidateProfile/EditCandidateProfile';
-import './SignupCompany.styles.css';
+// import './SignupCompany.styles.css';
 
 const EditCandidatePage = () => {
   return (
