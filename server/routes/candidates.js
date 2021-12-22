@@ -29,4 +29,44 @@ router.get('/profile/:_id', isLoggedIn, async (req, res) => {
   }
 });
 
+// PUT update candidate profile
+router.put('/:id', async (req, res) => {
+  const {
+    name,
+    email,
+    professionalSector,
+    cif,
+    address,
+    province,
+    companyUrl,
+    companyDescription,
+    linkedIn,
+    facebook,
+    instagram,
+  } = req.body;
+
+  try {
+    const updateCandidate = await User.findByIdAndUpdate(
+      req.params.id,
+      {
+        name,
+        email,
+        professionalSector,
+        cif,
+        address,
+        province,
+        companyUrl,
+        companyDescription,
+        linkedIn,
+        facebook,
+        instagram,
+      },
+      { new: true }
+    );
+    return res.status(200).json({ message: 'Candidate edited', updateCandidate });
+  } catch (err) {
+    return res.status(400).json({ message: 'Cannot update the company' });
+  }
+});
+
 module.exports = router;

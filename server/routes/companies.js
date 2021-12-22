@@ -25,6 +25,7 @@ router.get('/:_id', async (req, res) => {
     const showCompany = await Company.findById(req.params._id).populate(
       'jobOffers'
     );
+    console.log(showCompany)
     return res.status(200).json({ message: 'Company found', showCompany });
   } catch (err) {
     return res
@@ -49,6 +50,7 @@ router.get('/profile/:_id', isCompanyLoggedIn, async (req, res) => {
 router.put('/:id', async (req, res) => {
   const {
     name,
+    email,
     professionalSector,
     cif,
     address,
@@ -65,6 +67,7 @@ router.put('/:id', async (req, res) => {
       req.params.id,
       {
         name,
+        email,
         professionalSector,
         cif,
         address,

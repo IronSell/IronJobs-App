@@ -2,12 +2,12 @@ import EditCompanyProfile from '../../components/EditCompanyProfile/EditCompanyP
 import '../SignUpCompanyPage/SignupCompany.styles.css';
 
 const EditCompanyPage = (props) => {
-  const {user} = props
+  const { user, authenticate } = props;
 
   return (
     <>
       <main>
-        <EditCompanyProfile user={user}/>
+        <EditCompanyProfile user={user} authenticate={authenticate} />
       </main>
     </>
   );

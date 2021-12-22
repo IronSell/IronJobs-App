@@ -7,6 +7,8 @@ import {
 } from '@ant-design/icons';
 
 function CompanyView(props) {
+ //estado
+
   const {
     name,
     email,
@@ -21,12 +23,16 @@ function CompanyView(props) {
     linkedIn,
     instagram,
     facebook,
-  } = props.user;
-
+  } = props.user
+  
   const { Title } = Typography;
   const { Panel } = Collapse;
   const text = companyDescription;
   const { Link } = Anchor;
+
+//use effect llamada a endpoint con id de company
+//guardar eso en el estado con el setter
+
 
   return (
     <main className='container'>
@@ -83,7 +89,7 @@ function CompanyView(props) {
         </div>
         <div className='offers-container'>
           <Title level={3}>Active job vacancies</Title>
-          {/* {jobOffers.populate(jobOffers)} */}
+          {jobOffers}
         </div>
       </div>
     </main>

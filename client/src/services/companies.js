@@ -54,9 +54,9 @@ export function deleteCompany(id) {
     .catch(internalServerError);
 }
 
-export function updateCompanyProfile(_id) {
+export function updateCompanyProfile(_id, body) {
   return companiesService
-    .put('/' + _id)
+    .put('/' + _id, body)
     .then(successStatus)
     .catch(internalServerError);
 }

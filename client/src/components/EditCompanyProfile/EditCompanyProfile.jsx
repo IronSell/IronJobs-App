@@ -6,28 +6,29 @@ import * as PATHS from '../../utils/paths';
 import { Input, Button } from 'antd';
 
 const EditCompanyProfile = (props) => {
-  const { _id } = props.user;
+  const { user, authenticate } = props;
 
+  console.log('the proppsss', props);
   const { TextArea } = Input;
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
   const [form, setForm] = useState({
-    name: '',
-    email: '',
-    password: '',
-    professionalSector: '',
-    cif: '',
-    address: '',
-    province: '',
-    companyUrl: '',
-    companyDescription: '',
-    linkedIn: '',
-    facebook: '',
-    instagram: '',
+    name: user.name,
+    email: user.email,
+    professionalSector: user.professionalSector,
+    cif: user.cif,
+    address: user.address,
+    province: user.province,
+    companyUrl: user.companyUrl,
+    companyDescription: user.companyDescription,
+    linkedIn: user.linkedIn,
+    facebook: user.facebook,
+    instagram: user.instagram,
   });
 
   const {
     name,
     email,
-    password,
     professionalSector,
     cif,
     address,
@@ -39,9 +40,6 @@ const EditCompanyProfile = (props) => {
     instagram,
   } = form;
 
-  const [error, setError] = useState(null);
-  const navigate = useNavigate();
-
   function handleInputChange(e) {
     const { name, value } = e.target;
     return setForm({ ...form, [name]: value });
@@ -52,7 +50,6 @@ const EditCompanyProfile = (props) => {
     const companyAccount = {
       name,
       email,
-      password,
       professionalSector,
       cif,
       address,
@@ -63,10 +60,11 @@ const EditCompanyProfile = (props) => {
       facebook,
       instagram,
     };
-    updateCompanyProfile(_id, companyAccount).then((res) => {
+    updateCompanyProfile(user._id, companyAccount).then((res) => {
       if (!res.status) {
         return setError({ message: 'There was an error updating the profile' });
       }
+      authenticate(res.data.updateCompany);
       navigate(PATHS.COMPANYPROFILE);
     });
   }
@@ -85,17 +83,6 @@ const EditCompanyProfile = (props) => {
               name='email'
               placeholder='Company email'
               value={email}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className='form-input'>
-            <p className='form-input-title'>Company name</p>
-            <Input
-              id='input-password'
-              type='password'
-              name='password'
-              placeholder='Password'
-              value={password}
               onChange={handleInputChange}
             />
           </div>
