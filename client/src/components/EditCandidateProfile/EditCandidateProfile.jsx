@@ -1,7 +1,7 @@
 import '../SignUpCandidateForm/SignUpCandidate.styles.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signup } from '../../services/auth';
+import { updateCandidateProfile } from '../../services/candidates'
 import * as PATHS from '../../utils/paths';
 import { Input, Button } from 'antd';
 
@@ -10,16 +10,19 @@ const EditCandidateProfile = (props) => {
   const { user, authenticate } = props;
 
   const [error, setError] = useState(null);
+
   const navigate = useNavigate();
+  
   const [form, setForm] = useState({
     name: user.name,
+    lastName:user.lastName,
+    birth:user.birth,
     email: user.email,
-    professionalSector: user.professionalSector,
-    cif: user.cif,
-    address: user.address,
+    postalCode:user.postalCode,
+    profession: user.profession,
+    telephoneNumber:user.telephoneNumber,
+    studiesLevel:user.studiesLevel,
     province: user.province,
-    companyUrl: user.companyUrl,
-    companyDescription: user.companyDescription,
     linkedIn: user.linkedIn,
     facebook: user.facebook,
     instagram: user.instagram,
@@ -61,11 +64,11 @@ const EditCandidateProfile = (props) => {
       instagram,
       studiesLevel,
     };
-    updateCandidateProfile(user._id, companyAccount).then((res) => {
+    updateCandidateProfile(user._id, candidateAccount).then((res) => {
       if (!res.status) {
         return setError({ message: 'There was an error updating the profile' });
       }
-      authenticate(res.data.updateCompany);
+      authenticate(res.data.updateCandidate);
       navigate(PATHS.CANDIDATEPROFILE);
     });
   }

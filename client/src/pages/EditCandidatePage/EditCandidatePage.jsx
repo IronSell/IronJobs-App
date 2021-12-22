@@ -2,8 +2,9 @@
 import EditCandidateProfile from '../../components/EditCandidateProfile/EditCandidateProfile';
 import '../SignUpCompanyPage/SignupCompany.styles.css';
 
-const EditCandidatePage = () => {
+const EditCandidatePage = (props) => {
   const { user, authenticate } = props;
+  
   return (
     <>
       <main>

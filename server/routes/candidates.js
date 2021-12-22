@@ -1,72 +1,76 @@
-const router = require('express').Router();
+const router = require('express').Router()
 
 // Models
-const User = require('../models/User.model');
+const User = require('../models/User.model')
 
 // Middleware
 const isLoggedIn = require('../middleware/isLoggedIn')
-const isCompanyLoggedIn = require('../middleware/isCompanyLoggedIn');
+const isCompanyLoggedIn = require('../middleware/isCompanyLoggedIn')
 
 // GET candidates page
 router.get('/', isCompanyLoggedIn, async (req, res) => {
   try {
-    const getCandidates = await User.find();
+    const getCandidates = await User.find()
     return res
       .status(200)
-      .json({ message: 'Candidates found 👍', getCandidates });
+      .json({ message: 'Candidates found 👍', getCandidates })
   } catch (err) {
-    return res.status(404).json({ message: 'Page not found' });
+    return res.status(404).json({ message: 'Page not found' })
   }
-});
+})
 
 // GET candidate profile
 router.get('/profile/:_id', isLoggedIn, async (req, res) => {
   try {
-    const showUser = await User.findById(req.params._id);
-    return res.status(200).json({ message: 'Candidate found', showUser });
+    const showUser = await User.findById(req.params._id)
+    return res.status(200).json({ message: 'Candidate found', showUser })
   } catch (err) {
-    return res.status(404).json({ errorMessage: 'This user does not' });
+    return res.status(404).json({ errorMessage: 'This user does not' })
   }
-});
+})
 
 // PUT update candidate profile
 router.put('/:id', async (req, res) => {
   const {
     name,
+    lastName,
     email,
-    professionalSector,
-    cif,
-    address,
+    birth,
+    telephoneNumber,
     province,
-    companyUrl,
-    companyDescription,
+    postalCode,
+    profession,
     linkedIn,
     facebook,
     instagram,
-  } = req.body;
+    studiesLevel,
+  } = req.body
 
   try {
     const updateCandidate = await User.findByIdAndUpdate(
       req.params.id,
       {
         name,
+        lastName,
         email,
-        professionalSector,
-        cif,
-        address,
+        birth,
+        telephoneNumber,
         province,
-        companyUrl,
-        companyDescription,
+        postalCode,
+        profession,
         linkedIn,
         facebook,
         instagram,
+        studiesLevel,
       },
-      { new: true }
-    );
-    return res.status(200).json({ message: 'Candidate edited', updateCandidate });
+      { new: true },
+    )
+    return res
+      .status(200)
+      .json({ message: 'Candidate edited', updateCandidate })
   } catch (err) {
-    return res.status(400).json({ message: 'Cannot update the company' });
+    return res.status(400).json({ message: 'Cannot update the company' })
   }
-});
+})
 
-module.exports = router;
+module.exports = router

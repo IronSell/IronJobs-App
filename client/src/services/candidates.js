@@ -54,3 +54,9 @@ export function getCandidateProfile(id) {
     .then(successStatus)
     .catch(internalServerError);
 }
+export function updateCandidateProfile(_id, body) {
+  return candidatesService
+    .put('/' + _id, body)
+    .then(successStatus)
+    .catch(internalServerError);
+}
