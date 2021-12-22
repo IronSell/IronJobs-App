@@ -23,8 +23,8 @@ const CandidatesPage = (props) => {
   }, [navigate, user]);
 
   return (
-    <div className='container'>
-      <h1>CandidatesPage</h1>
+    <div className='container bebasNeue'>
+      <h1>Candidates</h1>
       <CandidatesSearchbar
         setFilteredCandidates={setFilteredCandidates}
         candidatesList={candidatesList}

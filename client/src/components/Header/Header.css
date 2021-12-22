@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "Anton-Regular";
+    src: url("./Anton-Regular.ttf");
+}
+
+.Header{
+    margin-top: 70px;
+    padding-top: 20px;
+    font-family: "Anton-Regular";
+    background-color:#76cacc ;
+    height: 160px;
+    width: 100%;
+    border-radius: 10px;
+}
+.Header h1{
+    font-size: 80px;
+    padding: 10px;
+    margin-bottom: 0px;
+}

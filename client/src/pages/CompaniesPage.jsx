@@ -16,13 +16,12 @@ const CompaniesPage = () => {
   }, []);
 
   return (
-    <div className='container'>
-      <h1>CompaniesPage</h1>
+    <div className='container bebasNeue'>
+      <h1>Companies</h1>
       <SearchbarCompanies
         setFilteredCompanies={setFilteredCompanies}
         companies={companies}
       />
-      <h2>List of Companies</h2>
       <div className='companiesStylesJobPage'>
         {fileteredCompanies?.map((searchCompany, index) => (
           <CardCompanies
