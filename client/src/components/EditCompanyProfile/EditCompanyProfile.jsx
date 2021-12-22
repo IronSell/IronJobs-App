@@ -11,7 +11,7 @@ const EditCompanyProfile = (props) => {
   const { TextArea } = Input;
 
   const [error, setError] = useState(null);
-  
+
   const navigate = useNavigate();
 
   const [form, setForm] = useState({

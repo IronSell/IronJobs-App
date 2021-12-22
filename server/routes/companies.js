@@ -25,7 +25,7 @@ router.get('/:_id', async (req, res) => {
     const showCompany = await Company.findById(req.params._id).populate(
       'jobOffers'
     );
-    console.log(showCompany)
+    console.log(showCompany);
     return res.status(200).json({ message: 'Company found', showCompany });
   } catch (err) {
     return res
@@ -37,7 +37,9 @@ router.get('/:_id', async (req, res) => {
 // GET company profile
 router.get('/profile/:_id', isCompanyLoggedIn, async (req, res) => {
   try {
-    const showCompany = await Company.findById(req.params._id);
+    const showCompany = await Company.findById(req.params._id).populate(
+      'jobOffers'
+    );
     return res.status(200).json({ message: 'Company found', showCompany });
   } catch (err) {
     return res
