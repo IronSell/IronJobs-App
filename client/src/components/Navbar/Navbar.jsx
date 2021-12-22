@@ -75,6 +75,14 @@ const Navbar = (props) => {
                   </Link>
                 </li>
                 <li>
+                  <Link
+                    to={PATHS.EDITCANDIDATEPROFILE}
+                    className='OfferAndCompanyColor'
+                  >
+                    Edit profile
+                  </Link>
+                </li>
+                <li>
                   <Button type='primary' onClick={handleLogout}>
                     Logout
                   </Button>

@@ -7,10 +7,13 @@ import {
   Descriptions,
   Collapse,
   Divider,
+  Tag,
 } from 'antd';
 import {
   LinkedinOutlined,
+  YoutubeOutlined,
   FacebookOutlined,
+  TwitterOutlined,
   InstagramOutlined,
 } from '@ant-design/icons';
 
@@ -26,6 +29,9 @@ function CompanyView(props) {
     companyUrl,
     companyLogo,
     jobOffers,
+    linkedIn,
+    instagram,
+    facebook
   } = props.user;
 
   const { Title, Text } = Typography;
@@ -69,18 +75,42 @@ function CompanyView(props) {
         <div className='media-container'>
           <Title level={3}>Social media</Title>
           <Divider />
-          <Text>
-            <LinkedinOutlined /> /quimiromar
+
+          <>
+    {/* <a href={twitter} target="_blank" rel='noreferrer'>
+    <Tag icon={<TwitterOutlined />} color="#55acee">
+      Twitter
+    </Tag></a> */}
+
+    <a href={facebook} target="_blank" rel='noreferrer'>
+    <Tag icon={<FacebookOutlined />} color="#3b5999">
+      Facebook
+    </Tag></a>
+
+    <a href={instagram}  target="_blank" rel='noreferrer'>
+    <Tag icon={<InstagramOutlined />} className='instagram'
+    //  color="#cd201f"
+     >
+      Instagram
+    </Tag></a>
+
+    <a href={linkedIn} target="_blank" rel='noreferrer'>
+    <Tag icon={<LinkedinOutlined />} color="#55acee">
+      LinkedIn
+    </Tag></a>
+  </>,
+          {/* <Text>
+          <a href={linkedIn} target="_blank" rel='noreferrer'>
+            <LinkedinOutlined /> {name}</a>
           </Text>
           <Divider />
           <Text>
-            <FacebookOutlined />
-            quimiromar
+            <FacebookOutlined /> {name}
           </Text>
           <Divider />
           <Text>
-            <InstagramOutlined /> @quimiromar
-          </Text>
+            <InstagramOutlined /> {name}
+          </Text> */}
         </div>
         <div className='offers-container'>
           <Title level={3}>Active job vacancies</Title>
