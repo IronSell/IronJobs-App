@@ -1,15 +1,6 @@
 import './CandidateView.styles.css';
 import React, { useState } from 'react';
-import {
-  Image,
-  Typography,
-  Anchor,
-  Descriptions,
-  Collapse,
-  Divider,
-  Modal,
-  Button,
-} from 'antd';
+import { Typography, Descriptions, Divider, Modal, Button } from 'antd';
 import {
   LinkedinOutlined,
   FacebookOutlined,
@@ -29,6 +20,7 @@ function CandidateView(props) {
     profession,
     professionalProfiles,
     professionalExperience,
+    appliedJobs,
   } = props.user;
 
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -74,7 +66,7 @@ function CandidateView(props) {
               <Descriptions.Item label='Telephone number'>
                 {telephoneNumber}
               </Descriptions.Item>
-              <Descriptions.Item label='Birth'>
+              <Descriptions.Item label='Date of birth'>
                 {birthDate.toLocaleDateString('es-ES')}
               </Descriptions.Item>
               <Descriptions.Item label='Profession'>
@@ -91,10 +83,20 @@ function CandidateView(props) {
             <section>
               {professionalExperience.map((job, index) => (
                 <div className='professional-experience-info'>
-                  <Title level={4}>{job.jobTitle}</Title>
+                  <Text level={4}>{job.jobTitle}</Text>
                   <Text>{job.companyName}</Text>
-                  <Text>{new Date(job.startDate).toLocaleDateString('es-ES')}</Text>
-                  <Button type='primary' onClick={showModal}>
+                  <Text>
+                    {new Date(job.startDate).toLocaleDateString('es-ES')}
+                  </Text>
+                  <span>-</span>
+                  {job.endDate ? (
+                    <Text>
+                      {new Date(job.endDate).toLocaleDateString('es-ES')}
+                    </Text>
+                  ) : (
+                    <Text>Present</Text>
+                  )}
+                  <Button type='default' onClick={showModal}>
                     See details
                   </Button>
                   <Modal
@@ -107,28 +109,8 @@ function CandidateView(props) {
                   </Modal>
                 </div>
               ))}
+              {/* <Link to={}></Link> */}
             </section>
-            {/* <section className='professional-experience-info'>
-              <Title level={4}>BALABASHS</Title>
-              <Text>BLOFWEJHEFJOERWO</Text>
-              <Text>{startDate.toLocaleDateString('es-ES')}</Text>
-              {professionalExperience.endDate ? (
-                <Text>{endDate.toLocaleDateString('es-ES')}</Text>
-              ) : (
-                <Text>endDate</Text>
-              )}
-              <Button type='primary' onClick={showModal}>
-                See details
-              </Button>
-              <Modal
-                title={professionalExperience}
-                visible={isModalVisible}
-                onOk={handleOk}
-                onCancel={handleCancel}
-              >
-                <Title level={4}>Description</Title>
-              </Modal>
-            </section> */}
           </div>
         </div>
 
@@ -150,7 +132,9 @@ function CandidateView(props) {
         </section>
         <section className='offers-container'>
           <Title level={3}>Applied job offers</Title>
-          {/* {professionalExperience} */}
+          {appliedJobs.map((appliedJob, index) => (
+            <Text>{appliedJob.jobTitle}</Text>
+          ))}
         </section>
       </div>
     </main>
