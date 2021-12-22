@@ -18,8 +18,8 @@ const OfferPage = () => {
   }, [])
 
   
-    const addToFav=()=>{
-      axios.get('/favorites/:user_id/company/:job_id')
+    const addToFav=(props)=>{
+      // axios.get(`/favorites/${id}/company/:job_id`)
     } 
   
 
