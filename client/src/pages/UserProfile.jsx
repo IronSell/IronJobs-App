@@ -8,7 +8,7 @@ const UserProfile = (props) => {
   
   useEffect(() => {
     axios
-      .get(`http://localhost:5005/api/users/profile/${user._id}`, {
+      .get(`${user._id}`, {
         headers: {
           Authorization: USER_HELPERS.getUserToken(),
         },

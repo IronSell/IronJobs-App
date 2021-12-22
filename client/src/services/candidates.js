@@ -43,3 +43,14 @@ export function getCandidates() {
     .then(successStatus)
     .catch(internalServerError);
 }
+
+export function getCandidateProfile(id) {
+  return candidatesService
+    .get('/profile/' + id, {
+      headers: {
+        Authorization: USER_HELPERS.getUserToken(),
+      },
+    })
+    .then(successStatus)
+    .catch(internalServerError);
+}

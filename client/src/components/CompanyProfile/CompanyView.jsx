@@ -1,17 +1,8 @@
 import './CompanyProfile.css';
-import {
-  Image,
-  Typography,
-  Anchor,
-  Descriptions,
-  Collapse,
-  Divider,
-  Tag,
-} from 'antd';
+import { Typography, Anchor, Descriptions, Collapse, Tag } from 'antd';
 import {
   LinkedinOutlined,
   FacebookOutlined,
-  TwitterOutlined,
   InstagramOutlined,
 } from '@ant-design/icons';
 
@@ -29,14 +20,14 @@ function CompanyView(props) {
     jobOffers,
     linkedIn,
     instagram,
-    facebook
+    facebook,
   } = props.user;
 
   const { Title } = Typography;
   const { Panel } = Collapse;
   const text = companyDescription;
   const { Link } = Anchor;
- 
+
   return (
     <main className='container'>
       <div className='CompanyView'>
@@ -72,28 +63,27 @@ function CompanyView(props) {
         </div>
         <div className='media-container'>
           <Title level={3}>Social media</Title>
-
           <>
-          {/* <Divider /> */}
-          <a href={facebook} target="_blank" rel='noreferrer'>
-          <Tag icon={<FacebookOutlined />} color="#3b5999">
-            Facebook
-          </Tag></a> 
-
-          <a href={instagram}  target="_blank" rel='noreferrer'>
-          <Tag icon={<InstagramOutlined />} className='instagram' >
-            Instagram
-          </Tag></a>
-
-          <a href={linkedIn} target="_blank" rel='noreferrer'>
-          <Tag icon={<LinkedinOutlined />} color="#0e76a8">
-            LinkedIn
-          </Tag></a>
+            <a href={facebook} target='_blank' rel='noreferrer'>
+              <Tag icon={<FacebookOutlined />} color='#3b5999'>
+                Facebook
+              </Tag>
+            </a>
+            <a href={instagram} target='_blank' rel='noreferrer'>
+              <Tag icon={<InstagramOutlined />} className='instagram'>
+                Instagram
+              </Tag>
+            </a>
+            <a href={linkedIn} target='_blank' rel='noreferrer'>
+              <Tag icon={<LinkedinOutlined />} color='#0e76a8'>
+                LinkedIn
+              </Tag>
+            </a>
           </>
         </div>
         <div className='offers-container'>
           <Title level={3}>Active job vacancies</Title>
-          {jobOffers}
+          {/* {jobOffers.populate(jobOffers)} */}
         </div>
       </div>
     </main>

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as USER_HELPERS from '../utils/userToken';
 
 function internalServerError(err) {
   if (err.response && err.response.data && err.response.data.errorMessage) {
@@ -31,6 +32,17 @@ export function getCompany(id) {
     .catch(internalServerError);
 }
 
+export function getCompanyProfile(id) {
+  return companiesService
+    .get('/profile/' + id, {
+      headers: {
+        Authorization: USER_HELPERS.getUserToken(),
+      },
+    })
+    .then(successStatus)
+    .catch(internalServerError);
+}
+
 export function getCompanies() {
   return companiesService.get().then(successStatus).catch(internalServerError);
 }
@@ -46,5 +58,5 @@ export function updateCompanyProfile(_id) {
   return companiesService
     .put('/' + _id)
     .then(successStatus)
-    .catch(internalServerError)
+    .catch(internalServerError);
 }
