@@ -1,98 +1,122 @@
 import './CompanyProfile.css';
-import { Typography, Anchor, Descriptions, Collapse, Tag } from 'antd';
+import {
+  Typography,
+  // Anchor,
+  Descriptions,
+  Collapse,
+  Tag,
+  Skeleton,
+} from 'antd';
 import {
   LinkedinOutlined,
   FacebookOutlined,
   InstagramOutlined,
 } from '@ant-design/icons';
+import { useState } from 'react';
+import { useEffect } from 'react/cjs/react.development';
+import { getCompanyProfile } from '../../services/companies';
 
 function CompanyView(props) {
- //estado
+  const { user } = props;
 
-  const {
-    name,
-    email,
-    professionalSector,
-    cif,
-    address,
-    companyDescription,
-    province,
-    companyUrl,
-    companyLogo,
-    jobOffers,
-    linkedIn,
-    instagram,
-    facebook,
-  } = props.user
-  
+  const [company, setCompany] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   const { Title } = Typography;
   const { Panel } = Collapse;
-  const text = companyDescription;
-  const { Link } = Anchor;
+  // const { Link } = Anchor;
 
-//use effect llamada a endpoint con id de company
-//guardar eso en el estado con el setter
-
+  useEffect(() => {
+    getCompanyProfile(user._id).then((response) => {
+      setCompany([response.data.showCompany]);
+      setIsLoading(false);
+    });
+  }, [user._id]);
 
   return (
-    <main className='container'>
-      <div className='CompanyView'>
-        <div className='company-logo-container'>
-          <img className='company-logo' src={companyLogo} alt={name} />
-          <Title level={3}>{name}</Title>
-          <div className='logo-container'></div>
-        </div>
-        <div className='info-container'>
-          <Descriptions
-            title='Company info'
-            bordered
-            column={{ lg: 3, md: 3, sm: 2, xs: 1 }}
-          >
-            <Descriptions.Item label='Professional Sector'>
-              {professionalSector}
-            </Descriptions.Item>
-            <Descriptions.Item label='CIF'>{cif}</Descriptions.Item>
-            <Descriptions.Item label='Website' span={2}>
-              {companyUrl}
-            </Descriptions.Item>
-            <Descriptions.Item label='Email' span={2}>
-              {email}
-            </Descriptions.Item>
-            <Descriptions.Item label='Province'>{province}</Descriptions.Item>
-            <Descriptions.Item label='Address'>{address}</Descriptions.Item>
-          </Descriptions>
-          <Collapse className='company-description' defaultActiveKey={['1']}>
-            <Panel header='Company description' key='1'>
-              <p>{text}</p>
-            </Panel>
-          </Collapse>
-        </div>
-        <div className='media-container'>
-          <Title level={3}>Social media</Title>
-          <>
-            <a href={facebook} target='_blank' rel='noreferrer'>
-              <Tag icon={<FacebookOutlined />} color='#3b5999'>
-                Facebook
-              </Tag>
-            </a>
-            <a href={instagram} target='_blank' rel='noreferrer'>
-              <Tag icon={<InstagramOutlined />} className='instagram'>
-                Instagram
-              </Tag>
-            </a>
-            <a href={linkedIn} target='_blank' rel='noreferrer'>
-              <Tag icon={<LinkedinOutlined />} color='#0e76a8'>
-                LinkedIn
-              </Tag>
-            </a>
-          </>
-        </div>
-        <div className='offers-container'>
-          <Title level={3}>Active job vacancies</Title>
-          {jobOffers}
-        </div>
-      </div>
-    </main>
+    <>
+      {isLoading ? (
+        <>
+          <Skeleton active />
+          <Skeleton active />
+          <Skeleton active />
+          <Skeleton active />
+          <Skeleton active />
+        </>
+      ) : (
+        company.map((info, index) => (
+          <main className='container'>
+            <div className='CompanyView'>
+              <div className='company-logo-container'>
+                <img
+                  className='company-logo'
+                  src={info.companyLogo}
+                  alt={info.name}
+                />
+                <Title level={3}>{info.name}</Title>
+                <div className='logo-container'></div>
+              </div>
+              <div className='info-container'>
+                <Descriptions
+                  title='Company info'
+                  bordered
+                  column={{ lg: 3, md: 3, sm: 2, xs: 1 }}
+                >
+                  <Descriptions.Item label='Professional Sector'>
+                    {info.professionalSector}
+                  </Descriptions.Item>
+                  <Descriptions.Item label='CIF'>{info.cif}</Descriptions.Item>
+                  <Descriptions.Item label='Website' span={2}>
+                    {info.companyUrl}
+                  </Descriptions.Item>
+                  <Descriptions.Item label='Email' span={2}>
+                    {info.email}
+                  </Descriptions.Item>
+                  <Descriptions.Item label='Province'>
+                    {info.province}
+                  </Descriptions.Item>
+                  <Descriptions.Item label='Address'>
+                    {info.address}
+                  </Descriptions.Item>
+                </Descriptions>
+                <Collapse
+                  className='company-description'
+                  defaultActiveKey={['1']}
+                >
+                  <Panel header='Company description' key='1'>
+                    <p>{info.companyDescription}</p>
+                  </Panel>
+                </Collapse>
+              </div>
+              <div className='media-container'>
+                <Title level={3}>Social media</Title>
+                <>
+                  <a href={info.facebook} target='_blank' rel='noreferrer'>
+                    <Tag icon={<FacebookOutlined />} color='#3b5999'>
+                      Facebook
+                    </Tag>
+                  </a>
+                  <a href={info.instagram} target='_blank' rel='noreferrer'>
+                    <Tag icon={<InstagramOutlined />} className='instagram'>
+                      Instagram
+                    </Tag>
+                  </a>
+                  <a href={info.linkedIn} target='_blank' rel='noreferrer'>
+                    <Tag icon={<LinkedinOutlined />} color='#0e76a8'>
+                      LinkedIn
+                    </Tag>
+                  </a>
+                </>
+              </div>
+              <div className='offers-container'>
+                <Title level={3}>Active job vacancies</Title>
+                {info.jobOffers.map((offer, index) => offer.jobTitle)}
+              </div>
+            </div>
+          </main>
+        ))
+      )}
+    </>
   );
 }
 

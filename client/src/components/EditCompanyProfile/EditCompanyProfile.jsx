@@ -9,8 +9,11 @@ const EditCompanyProfile = (props) => {
   const { user, authenticate } = props;
 
   const { TextArea } = Input;
+
   const [error, setError] = useState(null);
+
   const navigate = useNavigate();
+
   const [form, setForm] = useState({
     name: user.name,
     email: user.email,
