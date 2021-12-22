@@ -16,8 +16,8 @@ function OffersJobPage() {
   }, []);
 
   return (
-    <div className='container '>
-      <h1>OffersJobPage</h1>
+    <div className='container bebasNeue'>
+      <h1>Offers</h1>
       <Searchbar setFilteredOffers={setFilteredOffers} offers={offers} />
       <div className='offersStylesJobPage'>
         {fileteredOffers?.map((searchOffers, index) => (
