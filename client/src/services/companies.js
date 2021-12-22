@@ -41,3 +41,10 @@ export function deleteCompany(id) {
     .then(successStatus)
     .catch(internalServerError);
 }
+
+export function updateCompanyProfile(id) {
+  return companiesService
+    .patch('/' + id)
+    .then(successStatus)
+    .catch(internalServerError)
+}

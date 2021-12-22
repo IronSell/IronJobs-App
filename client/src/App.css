@@ -1,5 +1,10 @@
 @import '~antd/dist/antd.css';
 
+@font-face {
+  font-family: 'BebasNeue';
+  src: url('./../public/BebasNeue-Regular.ttf');
+}
+
 .App {
   text-align: center;
   padding-bottom: 70px;
@@ -115,4 +120,19 @@ hr {
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding-bottom: 70px;
+}
+h2{
+  font-size: 45px;
+  font-family: 'BebasNeue';
+  padding-top: 50px;
+
+
+}
+
+.bebasNeue h1{
+  margin-top: 30px;
+  font-size: 50px;
+  font-family: 'BebasNeue';
+  padding-top: 50px;
+
 }

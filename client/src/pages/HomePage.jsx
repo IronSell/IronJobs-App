@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { getOffers } from '../services/offers';
 import CardCompanies from '../components/CardCompanies/CardCompanies';
 import { getCompanies } from '../services/companies';
+import Header from '../components/Header/Header';
 function HomePage() {
   const [offers, setOffers] = useState([]);
   const [companies, setCompanies] = useState([]);
@@ -24,13 +25,14 @@ useEffect(() => {
   return (
     <main className='App'>
       <div className='container'>
-        <h1>Top Offers</h1>
+          <Header />
+        <h2>Top Offers</h2>
         <div className='offersStylesJobPage'>
           {offers?.map((searchOffers, index) => (
             <CardOffer searchOffers={searchOffers} key={index + Date.now()} />
           ))}
         </div>
-        <h1>Top Companies</h1>
+        <h2>Top Companies</h2>
         <div className='companiesHomePage'>
         {companies?.map((searchCompany, index) => (
           <CardCompanies
