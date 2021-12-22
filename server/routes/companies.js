@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const fileUploader = require('../config/cloudinary.config');
 
 // Models
 const Company = require('../models/Company.model');
@@ -63,9 +62,6 @@ router.patch(
       companyUrl,
       companyLogo,
     } = req.body;
-
-    let imageUrl;
-    req.file ? (imageUrl = req.file.path) : (imageUrl = companyLogo);
 
     try {
       const updateCompany = await Company.findByIdAndUpdate(
