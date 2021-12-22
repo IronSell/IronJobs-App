@@ -136,3 +136,25 @@ h2{
   padding-top: 50px;
 
 }
+
+
+.offerPage img{
+  width: 230px;
+  height: 140px;
+  /* object-fit: cover; */
+  margin-bottom: 50px;
+}
+
+
+.offerPage h1{
+  padding-top: 0px;
+  font-family: 'BebasNeue';
+
+}
+.space{
+  padding-bottom: 20px;
+}
+.offerPage button{
+  /* padding:10px; */
+  margin-bottom: 20px;
+}
