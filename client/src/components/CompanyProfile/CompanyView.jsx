@@ -3,7 +3,6 @@ import {
   Image,
   Typography,
   Anchor,
-  Text,
   Descriptions,
   Collapse,
   Divider,
@@ -11,7 +10,6 @@ import {
 } from 'antd';
 import {
   LinkedinOutlined,
-  YoutubeOutlined,
   FacebookOutlined,
   TwitterOutlined,
   InstagramOutlined,
@@ -34,11 +32,11 @@ function CompanyView(props) {
     facebook
   } = props.user;
 
-  const { Title, Text } = Typography;
+  const { Title } = Typography;
   const { Panel } = Collapse;
   const text = companyDescription;
   const { Link } = Anchor;
-
+ 
   return (
     <main className='container'>
       <div className='CompanyView'>
@@ -74,43 +72,24 @@ function CompanyView(props) {
         </div>
         <div className='media-container'>
           <Title level={3}>Social media</Title>
-          <Divider />
 
           <>
-    {/* <a href={twitter} target="_blank" rel='noreferrer'>
-    <Tag icon={<TwitterOutlined />} color="#55acee">
-      Twitter
-    </Tag></a> */}
+          {/* <Divider /> */}
+          <a href={facebook} target="_blank" rel='noreferrer'>
+          <Tag icon={<FacebookOutlined />} color="#3b5999">
+            Facebook
+          </Tag></a> 
 
-    <a href={facebook} target="_blank" rel='noreferrer'>
-    <Tag icon={<FacebookOutlined />} color="#3b5999">
-      Facebook
-    </Tag></a>
+          <a href={instagram}  target="_blank" rel='noreferrer'>
+          <Tag icon={<InstagramOutlined />} className='instagram' >
+            Instagram
+          </Tag></a>
 
-    <a href={instagram}  target="_blank" rel='noreferrer'>
-    <Tag icon={<InstagramOutlined />} className='instagram'
-    //  color="#cd201f"
-     >
-      Instagram
-    </Tag></a>
-
-    <a href={linkedIn} target="_blank" rel='noreferrer'>
-    <Tag icon={<LinkedinOutlined />} color="#55acee">
-      LinkedIn
-    </Tag></a>
-  </>,
-          {/* <Text>
           <a href={linkedIn} target="_blank" rel='noreferrer'>
-            <LinkedinOutlined /> {name}</a>
-          </Text>
-          <Divider />
-          <Text>
-            <FacebookOutlined /> {name}
-          </Text>
-          <Divider />
-          <Text>
-            <InstagramOutlined /> {name}
-          </Text> */}
+          <Tag icon={<LinkedinOutlined />} color="#0e76a8">
+            LinkedIn
+          </Tag></a>
+          </>
         </div>
         <div className='offers-container'>
           <Title level={3}>Active job vacancies</Title>
