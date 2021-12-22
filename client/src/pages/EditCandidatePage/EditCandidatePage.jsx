@@ -1,12 +1,13 @@
 
 import EditCandidateProfile from '../../components/EditCandidateProfile/EditCandidateProfile';
-// import './SignupCompany.styles.css';
+import '../SignUpCompanyPage/SignupCompany.styles.css';
 
 const EditCandidatePage = () => {
+  const { user, authenticate } = props;
   return (
     <>
       <main>
-        <EditCandidateProfile />
+        <EditCandidateProfile user={user} authenticate={authenticate} />
       </main>
     </>
   );

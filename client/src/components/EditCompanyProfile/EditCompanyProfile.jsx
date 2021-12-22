@@ -8,7 +8,6 @@ import { Input, Button } from 'antd';
 const EditCompanyProfile = (props) => {
   const { user, authenticate } = props;
 
-  console.log('the proppsss', props);
   const { TextArea } = Input;
   const [error, setError] = useState(null);
   const navigate = useNavigate();
