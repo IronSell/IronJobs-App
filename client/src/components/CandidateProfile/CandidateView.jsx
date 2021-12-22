@@ -28,7 +28,7 @@ function CandidateView(props) {
     profilePicture,
     profession,
     professionalProfiles,
-    // professionalExperience,
+    professionalExperience,
   } = props.user;
 
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -46,8 +46,6 @@ function CandidateView(props) {
   };
 
   const birthDate = new Date(birth);
-  // const startDate = new Date(professionalExperience.startDate)
-  // const endDate = new Date(professionalExperience.endDate)
 
   const { Title, Text } = Typography;
 
@@ -90,6 +88,26 @@ function CandidateView(props) {
           </section>
           <div className='professional-experience'>
             <Title level={3}>Professional experience</Title>
+            <section>
+              {professionalExperience.map((job, index) => (
+                <div className='professional-experience-info'>
+                  <Title level={4}>{job.jobTitle}</Title>
+                  <Text>{job.companyName}</Text>
+                  <Text>{new Date(job.startDate).toLocaleDateString('es-ES')}</Text>
+                  <Button type='primary' onClick={showModal}>
+                    See details
+                  </Button>
+                  <Modal
+                    title={job.jobTitle}
+                    visible={isModalVisible}
+                    onOk={handleOk}
+                    onCancel={handleCancel}
+                  >
+                    <Text level={4}>{job.jobDescription}</Text>
+                  </Modal>
+                </div>
+              ))}
+            </section>
             {/* <section className='professional-experience-info'>
               <Title level={4}>BALABASHS</Title>
               <Text>BLOFWEJHEFJOERWO</Text>
