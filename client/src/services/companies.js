@@ -42,9 +42,9 @@ export function deleteCompany(id) {
     .catch(internalServerError);
 }
 
-export function updateCompanyProfile(id) {
+export function updateCompanyProfile(_id) {
   return companiesService
-    .patch('/' + id)
+    .put('/' + _id)
     .then(successStatus)
     .catch(internalServerError)
 }

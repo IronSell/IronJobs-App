@@ -1,12 +1,13 @@
 import '../SignUpCompanyForm/SignUpCompanyForm.styles.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signupCompany } from '../../services/auth';
+import { updateCompanyProfile } from '../../services/companies';
 import * as PATHS from '../../utils/paths';
 import { Input, Button } from 'antd';
 
+const EditCompanyProfile = (props) => {
+  const { _id } = props.user;
 
-const EditCompanyProfile = () => {
   const { TextArea } = Input;
   const [form, setForm] = useState({
     name: '',
@@ -17,10 +18,10 @@ const EditCompanyProfile = () => {
     address: '',
     province: '',
     companyUrl: '',
-    companyDescription:"",
-    linkedIn:'',
-    facebook:'',
-    instagram:'',
+    companyDescription: '',
+    linkedIn: '',
+    facebook: '',
+    instagram: '',
   });
 
   const {
@@ -62,9 +63,9 @@ const EditCompanyProfile = () => {
       facebook,
       instagram,
     };
-    signupCompany(companyAccount).then((res) => {
+    updateCompanyProfile(_id, companyAccount).then((res) => {
       if (!res.status) {
-        return setError({ message: 'There was an error creating the account' });
+        return setError({ message: 'There was an error updating the profile' });
       }
       navigate(PATHS.COMPANYPROFILE);
     });
@@ -76,6 +77,28 @@ const EditCompanyProfile = () => {
         <form onSubmit={handleFormSubmission} className='auth__form'>
           <h1 className='form-titles'>Your company data</h1>
           <hr />
+          <div className='form-input'>
+            <p className='form-input-title'>Company name</p>
+            <Input
+              id='input-email'
+              type='text'
+              name='email'
+              placeholder='Company email'
+              value={email}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className='form-input'>
+            <p className='form-input-title'>Company name</p>
+            <Input
+              id='input-password'
+              type='password'
+              name='password'
+              placeholder='Password'
+              value={password}
+              onChange={handleInputChange}
+            />
+          </div>
           <div className='form-input'>
             <p className='form-input-title'>Company name</p>
             <Input
@@ -177,16 +200,17 @@ const EditCompanyProfile = () => {
           </div>
           <p className='form-input-title'>Company description</p>
           <div className='form-input'>
-          <TextArea rows={4} 
-           id='companyDescription'
-           type='text'
-           name='companyDescription'
-           placeholder='companyDescription'
-           value={companyDescription}
-           onChange={handleInputChange}
-          />
+            <TextArea
+              rows={4}
+              id='companyDescription'
+              type='text'
+              name='companyDescription'
+              placeholder='companyDescription'
+              value={companyDescription}
+              onChange={handleInputChange}
+            />
           </div>
-          <Button type='primary' htmlType='submit'>
+          <Button type='primary' htmlType={handleFormSubmission}>
             Edit Account
           </Button>
         </form>

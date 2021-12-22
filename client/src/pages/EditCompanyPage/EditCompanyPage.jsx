@@ -1,11 +1,13 @@
 import EditCompanyProfile from '../../components/EditCompanyProfile/EditCompanyProfile';
 import '../SignUpCompanyPage/SignupCompany.styles.css';
 
-const EditCompanyPage = () => {
+const EditCompanyPage = (props) => {
+  const {user} = props
+
   return (
     <>
       <main>
-        <EditCompanyProfile />
+        <EditCompanyProfile user={user}/>
       </main>
     </>
   );

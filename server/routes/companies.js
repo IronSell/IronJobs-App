@@ -46,19 +46,18 @@ router.get('/profile/:_id', isCompanyLoggedIn, async (req, res) => {
 });
 
 // UPDATE/EDIT company profile
-router.patch('/:id', isCompanyLoggedIn, async (req, res) => {
+router.put('/:id', async (req, res) => {
   const {
     name,
-    email,
-    password,
     professionalSector,
     cif,
     address,
-    companyDescription,
     province,
-    jobOffers,
     companyUrl,
-    companyLogo,
+    companyDescription,
+    linkedIn,
+    facebook,
+    instagram,
   } = req.body;
 
   try {
@@ -66,19 +65,19 @@ router.patch('/:id', isCompanyLoggedIn, async (req, res) => {
       req.params.id,
       {
         name,
-        email,
-        password,
         professionalSector,
         cif,
         address,
-        companyDescription,
         province,
         companyUrl,
-        companyLogo,
+        companyDescription,
+        linkedIn,
+        facebook,
+        instagram,
       },
       { new: true }
     );
-    return res.status(200).json({ message: 'Company edited', editCompany });
+    return res.status(200).json({ message: 'Company edited', updateCompany });
   } catch (err) {
     return res.status(400).json({ message: 'Cannot update the company' });
   }
