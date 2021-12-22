@@ -71,7 +71,9 @@
 
   .professional-experience-info {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 20px;
   }
 
   .media-container {

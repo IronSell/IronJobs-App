@@ -91,10 +91,16 @@ function CandidateView(props) {
             <section>
               {professionalExperience.map((job, index) => (
                 <div className='professional-experience-info'>
-                  <Title level={4}>{job.jobTitle}</Title>
+                  <Text level={4}>{job.jobTitle}</Text>
                   <Text>{job.companyName}</Text>
                   <Text>{new Date(job.startDate).toLocaleDateString('es-ES')}</Text>
-                  <Button type='primary' onClick={showModal}>
+                  <span>-</span>
+                  {job.endDate ? (
+                    <Text>{new Date(job.endDate).toLocaleDateString('es-ES')}</Text>
+                  ) : (
+                    <Text>Present</Text>
+                  )}
+                  <Button type='default' onClick={showModal}>
                     See details
                   </Button>
                   <Modal
@@ -107,6 +113,7 @@ function CandidateView(props) {
                   </Modal>
                 </div>
               ))}
+              {/* <Link to={}></Link> */}
             </section>
             {/* <section className='professional-experience-info'>
               <Title level={4}>BALABASHS</Title>
