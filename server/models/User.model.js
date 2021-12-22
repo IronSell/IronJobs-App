@@ -37,13 +37,9 @@ const userSchema = new Schema(
         'https://res.cloudinary.com/dafy78pru/image/upload/v1639148882/default-candidate-image_yzvjdg.png',
     },
     profession: String,
-    professionalProfiles: {
-      github: String,
-      linkedin: String,
-      instagram: String,
-      facebook: String,
-      web: String,
-    },
+    linkedIn: { type: Schema.Types.Url },
+    facebook: { type: Schema.Types.Url },
+    instagram: { type: Schema.Types.Url },
     professionalExperience: [{
       companyName: {
         type: String,

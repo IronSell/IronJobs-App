@@ -1,5 +1,5 @@
 import EditCompanyProfile from '../../components/EditCompanyProfile/EditCompanyProfile';
-// import './SignupCompany.styles.css';
+import '../SignUpCompanyPage/SignupCompany.styles.css';
 
 const EditCompanyPage = () => {
   return (

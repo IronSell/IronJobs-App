@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { signup } from '../../services/auth';
 import * as PATHS from '../../utils/paths';
 import { Input, Button } from 'antd';
-import { LockOutlined, MailOutlined } from '@ant-design/icons';
+
 
 const EditCandidateProfile = () => {
   const [form, setForm] = useState({
@@ -16,6 +16,11 @@ const EditCandidateProfile = () => {
     telephoneNumber: '',
     province: '',
     postalCode: '',
+    profession: '',
+    linkedIn: '',
+    facebook: '',
+    instagram: '',
+    studiesLevel: '',
   });
 
   const {
@@ -27,6 +32,11 @@ const EditCandidateProfile = () => {
     telephoneNumber,
     province,
     postalCode,
+    profession,
+    linkedIn,
+    facebook,
+    instagram,
+    studiesLevel,
   } = form;
 
   const [error, setError] = useState(null);
@@ -48,6 +58,11 @@ const EditCandidateProfile = () => {
       telephoneNumber,
       province,
       postalCode,
+      profession,
+      linkedIn,
+      facebook,
+      instagram,
+      studiesLevel,
     };
     signup(candidateAccount).then((res) => {
       if (!res.status) {
@@ -61,37 +76,7 @@ const EditCandidateProfile = () => {
     <>
       <div className='container signup-form'>
         <form onSubmit={handleFormSubmission} className='auth__form'>
-          <p className='form-titles'>Edit your profile</p>
-          <hr />
-          <div className='form-input'>
-            <Input
-              prefix={<MailOutlined className='site-form-item-icon' />}
-              id='input-email'
-              type='email'
-              name='email'
-              placeholder='Email'
-              value={email}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div className='form-input'>
-            <Input.Password
-              prefix={<LockOutlined className='site-form-item-icon' />}
-              id='input-password'
-              type='password'
-              name='password'
-              placeholder='Password'
-              value={password}
-              onChange={handleInputChange}
-              required={true}
-            />
-            <p className='password-instructions'>
-              Your password must be a combination of at least 8 numbers,
-              lowercase and uppercase letters.{' '}
-            </p>
-          </div>
-          <p className='form-titles'>Your personal data</p>
+          <h1 className='form-titles'>Your profile data</h1>
           <hr />
           <div className='form-input'>
             <p className='form-input-title'>Name</p>
@@ -102,7 +87,6 @@ const EditCandidateProfile = () => {
               placeholder='Name'
               value={name}
               onChange={handleInputChange}
-              required
             />
           </div>
           <div className='form-input'>
@@ -114,7 +98,6 @@ const EditCandidateProfile = () => {
               placeholder='Last name'
               value={lastName}
               onChange={handleInputChange}
-              required
             />
           </div>
           <p className='form-input-title'>Date of birth</p>
@@ -126,7 +109,6 @@ const EditCandidateProfile = () => {
               placeholder='Date of birth'
               value={birth}
               onChange={handleInputChange}
-              required={true}
             />
           </div>
           <p className='form-input-title'>Telephone number</p>
@@ -138,7 +120,6 @@ const EditCandidateProfile = () => {
               placeholder='Telephone Number'
               value={telephoneNumber}
               onChange={handleInputChange}
-              required={true}
               maxLength={9}
             />
           </div>
@@ -151,7 +132,6 @@ const EditCandidateProfile = () => {
               placeholder='Postal Code'
               value={postalCode}
               onChange={handleInputChange}
-              required={true}
               maxLength={5}
             />
           </div>
@@ -164,7 +144,59 @@ const EditCandidateProfile = () => {
               placeholder='Province'
               value={province}
               onChange={handleInputChange}
-              required={true}
+            />
+          </div>
+          <p className='form-input-title'>Profession</p>
+          <div className='form-input'>
+            <Input
+              id='input-profession'
+              type='text'
+              name='profession'
+              placeholder='profession'
+              value={profession}
+              onChange={handleInputChange}
+            />
+          </div>
+          <p className='form-input-title'>Studies-level</p>
+          <div className='form-input'>
+            <Input
+              id='input-studiesLevel'
+              type='text'
+              name='studiesLevel'
+              placeholder='studiesLevel'
+              value={studiesLevel}
+              onChange={handleInputChange}
+            />
+          </div>
+          <p className='form-input-title'>Social-media</p>
+          <div className='form-input'>
+            <Input
+              id='linkedIn'
+              type='url'
+              name='linkedIn'
+              placeholder='linkedIn'
+              value={linkedIn}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className='form-input'>
+            <Input
+              id='facebook'
+              type='url'
+              name='facebook'
+              placeholder='facebook'
+              value={facebook}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className='form-input'>
+            <Input
+              id='instagram'
+              type='url'
+              name='instagram'
+              placeholder='instagram'
+              value={instagram}
+              onChange={handleInputChange}
             />
           </div>
           <Button type='primary' htmlType='submit'>

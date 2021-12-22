@@ -4,9 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { signupCompany } from '../../services/auth';
 import * as PATHS from '../../utils/paths';
 import { Input, Button } from 'antd';
-import { LockOutlined, MailOutlined } from '@ant-design/icons';
+
 
 const EditCompanyProfile = () => {
+  const { TextArea } = Input;
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -16,6 +17,10 @@ const EditCompanyProfile = () => {
     address: '',
     province: '',
     companyUrl: '',
+    companyDescription:"",
+    linkedIn:'',
+    facebook:'',
+    instagram:'',
   });
 
   const {
@@ -27,6 +32,10 @@ const EditCompanyProfile = () => {
     address,
     province,
     companyUrl,
+    companyDescription,
+    linkedIn,
+    facebook,
+    instagram,
   } = form;
 
   const [error, setError] = useState(null);
@@ -48,6 +57,10 @@ const EditCompanyProfile = () => {
       address,
       province,
       companyUrl,
+      companyDescription,
+      linkedIn,
+      facebook,
+      instagram,
     };
     signupCompany(companyAccount).then((res) => {
       if (!res.status) {
@@ -61,37 +74,7 @@ const EditCompanyProfile = () => {
     <>
       <div className='container signup-form'>
         <form onSubmit={handleFormSubmission} className='auth__form'>
-          <p className='form-titles'>IronJobs access data</p>
-          <hr />
-          <div className='form-input'>
-            <Input
-              prefix={<MailOutlined className='site-form-item-icon' />}
-              id='input-email'
-              type='email'
-              name='email'
-              placeholder='Email'
-              value={email}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div className='form-input'>
-            <Input.Password
-              prefix={<LockOutlined className='site-form-item-icon' />}
-              id='input-password'
-              type='password'
-              name='password'
-              placeholder='Password'
-              value={password}
-              onChange={handleInputChange}
-              required={true}
-            />
-            <p className='password-instructions'>
-              Your password must be a combination of at least 8 numbers,
-              lowercase and uppercase letters.{' '}
-            </p>
-          </div>
-          <p className='form-titles'>Your company data</p>
+          <h1 className='form-titles'>Your company data</h1>
           <hr />
           <div className='form-input'>
             <p className='form-input-title'>Company name</p>
@@ -102,7 +85,6 @@ const EditCompanyProfile = () => {
               placeholder='Company name'
               value={name}
               onChange={handleInputChange}
-              required
             />
           </div>
           <p className='form-input-title'>CIF</p>
@@ -127,7 +109,6 @@ const EditCompanyProfile = () => {
               placeholder='Professional Sector'
               value={professionalSector}
               onChange={handleInputChange}
-              required
             />
           </div>
           <p className='form-input-title'>Address</p>
@@ -139,7 +120,6 @@ const EditCompanyProfile = () => {
               placeholder='Company Address'
               value={address}
               onChange={handleInputChange}
-              required
             />
           </div>
           <p className='form-input-title'>Province</p>
@@ -151,7 +131,6 @@ const EditCompanyProfile = () => {
               placeholder='Province'
               value={province}
               onChange={handleInputChange}
-              required
             />
           </div>
           <p className='form-input-title'>Website</p>
@@ -163,15 +142,53 @@ const EditCompanyProfile = () => {
               placeholder='Company website'
               value={companyUrl}
               onChange={handleInputChange}
-              required
             />
           </div>
+          <p className='form-input-title'>Social-media</p>
+          <div className='form-input'>
+            <Input
+              id='linkedIn'
+              type='url'
+              name='linkedIn'
+              placeholder='linkedIn'
+              value={linkedIn}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className='form-input'>
+            <Input
+              id='facebook'
+              type='url'
+              name='facebook'
+              placeholder='facebook'
+              value={facebook}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className='form-input'>
+            <Input
+              id='instagram'
+              type='url'
+              name='instagram'
+              placeholder='instagram'
+              value={instagram}
+              onChange={handleInputChange}
+            />
+          </div>
+          <p className='form-input-title'>Company description</p>
+          <div className='form-input'>
+          <TextArea rows={4} 
+           id='companyDescription'
+           type='text'
+           name='companyDescription'
+           placeholder='companyDescription'
+           value={companyDescription}
+           onChange={handleInputChange}
+          />
+          </div>
           <Button type='primary' htmlType='submit'>
-            Create Account
+            Edit Account
           </Button>
-          <p className='form-titles-centered'>
-            Then you can publish your first job offer!
-          </p>
         </form>
       </div>
     </>
