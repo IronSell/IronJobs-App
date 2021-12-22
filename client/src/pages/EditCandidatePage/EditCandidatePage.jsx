@@ -2,7 +2,7 @@
 import EditCandidateProfile from '../../components/EditCandidateProfile/EditCandidateProfile';
 import './SignupCompany.styles.css';
 
-const SignupCompanyPage = () => {
+const EditCandidatePage = () => {
   return (
     <>
       <main>
@@ -12,4 +12,4 @@ const SignupCompanyPage = () => {
   );
 };
 
-export default SignupCompanyPage;
+export default EditCandidatePage;

@@ -1,7 +1,7 @@
 import EditCompanyProfile from '../../components/EditCompanyProfile/EditCompanyProfile';
 import './SignupCompany.styles.css';
 
-const SignupCompanyPage = () => {
+const EditCompanyPage = () => {
   return (
     <>
       <main>
@@ -11,4 +11,4 @@ const SignupCompanyPage = () => {
   );
 };
 
-export default SignupCompanyPage;
+export default EditCompanyPage;
