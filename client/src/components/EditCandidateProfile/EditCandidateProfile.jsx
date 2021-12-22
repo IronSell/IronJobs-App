@@ -6,28 +6,29 @@ import * as PATHS from '../../utils/paths';
 import { Input, Button } from 'antd';
 
 
-const EditCandidateProfile = () => {
+const EditCandidateProfile = (props) => {
+  const { user, authenticate } = props;
+
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
   const [form, setForm] = useState({
-    name: '',
-    lastName: '',
-    email: '',
-    password: '',
-    birth: '',
-    telephoneNumber: '',
-    province: '',
-    postalCode: '',
-    profession: '',
-    linkedIn: '',
-    facebook: '',
-    instagram: '',
-    studiesLevel: '',
+    name: user.name,
+    email: user.email,
+    professionalSector: user.professionalSector,
+    cif: user.cif,
+    address: user.address,
+    province: user.province,
+    companyUrl: user.companyUrl,
+    companyDescription: user.companyDescription,
+    linkedIn: user.linkedIn,
+    facebook: user.facebook,
+    instagram: user.instagram,
   });
 
   const {
     name,
     lastName,
     email,
-    password,
     birth,
     telephoneNumber,
     province,
@@ -38,9 +39,6 @@ const EditCandidateProfile = () => {
     instagram,
     studiesLevel,
   } = form;
-
-  const [error, setError] = useState(null);
-  const navigate = useNavigate();
 
   function handleInputChange(e) {
     const { name, value } = e.target;
@@ -53,7 +51,6 @@ const EditCandidateProfile = () => {
       name,
       lastName,
       email,
-      password,
       birth,
       telephoneNumber,
       province,
@@ -64,10 +61,11 @@ const EditCandidateProfile = () => {
       instagram,
       studiesLevel,
     };
-    signup(candidateAccount).then((res) => {
+    updateCandidateProfile(user._id, companyAccount).then((res) => {
       if (!res.status) {
-        return setError({ message: 'There was an error creating the account' });
+        return setError({ message: 'There was an error updating the profile' });
       }
+      authenticate(res.data.updateCompany);
       navigate(PATHS.CANDIDATEPROFILE);
     });
   }
@@ -199,7 +197,7 @@ const EditCandidateProfile = () => {
               onChange={handleInputChange}
             />
           </div>
-          <Button type='primary' htmlType='submit'>
+          <Button type='primary' htmlType={handleFormSubmission}>
             Edit Account
           </Button>
         </form>
