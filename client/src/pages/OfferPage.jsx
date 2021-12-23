@@ -41,12 +41,8 @@ const OfferPage = () => {
               <div className="card-block">
                 <h1 className="card-title">{offer.jobTitle}</h1>
                 <hr/>
-                {/* <p className="card-text text-justify color-description-offer">{offer.salary}</p> */}
-                {/* <p className="card-text text-justify color-description-offer">{offer.province}</p> */}
                 <p className="card-text text-justify">{offer.requirements}</p>
-                {/* <p className="card-text text-justify color-description-offer">{offer.schedule}</p> */}
                 <p className="card-text text-justify">{offer.description}</p>
-
                 <p className="card-text text-justify color-description-offer">{offer.experienceYears}</p>
                 <p className='space cardOfferBorderListItem'>
                   <span>
