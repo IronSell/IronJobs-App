@@ -1,7 +1,7 @@
 import '../App.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as PATHS from '../utils/paths';
 import { getOffer } from '../services/offers';
 import {
@@ -9,6 +9,7 @@ import {
   EnvironmentOutlined,
   EuroCircleOutlined,
 } from '@ant-design/icons';
+import { Button } from 'antd';
 
 const OfferPage = (props) => {
   const { user, authenticate } = props;
@@ -75,9 +76,17 @@ const OfferPage = (props) => {
                   </span>{' '}
                   {offer.schedule}{' '}
                 </p>
-                <button className='ApllyButton' onClick={appliedOffer}>
+                {user ? (
+                  <Button type='primary' onClick={appliedOffer}>
                   Apply
-                </button>
+                </Button>
+                ) : (
+                  <Link to={PATHS.LOGINCANDIDATEPAGE}>
+                    <Button type='primary'>
+                      Apply
+                    </Button>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
