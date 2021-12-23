@@ -20,7 +20,8 @@ function CardOffer(props) {
             <List.Item className='cardOfferBorder'>
               <List.Item.Meta
                 className='cardOfferBorderListItem'
-                avatar={<Avatar src='https://joeschmoe.io/api/v1/random' />}
+                avatar={<Avatar src={searchOffers.companyLogo} />}
+                // 'https://joeschmoe.io/api/v1/random'
                 title={searchOffers.jobTitle}
                 description={searchOffers.description}
               />

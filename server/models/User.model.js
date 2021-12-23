@@ -38,7 +38,7 @@ const userSchema = new Schema(
     },
     profession: String,
     linkedIn: { type: Schema.Types.Url },
-    facebook: { type: Schema.Types.Url },
+    github: { type: Schema.Types.Url },
     instagram: { type: Schema.Types.Url },
     professionalExperience: [{
       companyName: {
