@@ -31,6 +31,11 @@ const jobOfferSchema = new Schema(
       required: [true, 'Schedule is required'],
     },
     company: [{ type: Schema.Types.ObjectId, ref: 'Company' }],
+    companyLogo: {
+      type: String,
+      default:
+        'https://res.cloudinary.com/dafy78pru/image/upload/v1639090003/default-company-logo_tqgr0i.png ',
+    },
     candidates: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   },
   {

@@ -14,6 +14,8 @@ const users = [
     postalCode: '46020',
     province: 'Valencia',
     profilePicture: 'https://res.cloudinary.com/dafy78pru/image/upload/v1639249579/FAB5BA1E-7234-44B8-8FD8-9C28C13C5845_ji77mh.jpg',
+    linkedIn:'https://www.linkedin.com/in/nachobenitoroig/?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAzNl8MBeXIs1C0LsTHODGxgj0OKDwE3CjE',
+    github:'https://github.com/nachbr91',
   },
   {
     name: 'Federico',
@@ -25,6 +27,8 @@ const users = [
     postalCode: '12001',
     province: 'Castellon',
     profilePicture: 'https://avatars.githubusercontent.com/u/91974251?v=4',
+    linkedIn:'https://www.linkedin.com/in/federico-altava-redondo-a59390199/?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAC6CEuUBzzFe_Yl00uqkq-KyE5QxRoZ1Im0',
+    github:'https://github.com/FedeAltava',
   },
   {
     name: 'Rocio',
@@ -36,6 +40,8 @@ const users = [
     postalCode: '28045',
     province: 'Madrid',
     profilePicture: 'https://avatars.githubusercontent.com/u/91464194?v=4',
+    linkedIn:'https://www.linkedin.com/in/maria-del-rocio-garcia-16a508193/',
+    github:'https://github.com/Roxonwheels',
   },
   {
     name: 'Aaron',
@@ -47,6 +53,8 @@ const users = [
     postalCode: '80001',
     province: 'Barcelona',
     profilePicture: 'https://avatars.githubusercontent.com/u/92530312?v=4',
+    linkedIn:'https://www.linkedin.com/in/aaronlopezbarros/?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAABIxY0wBeyLqUxaoxs39Z9ZAlMK2RDI01Vc',
+    github:'https://github.com/AaronLopezBarros',
   },
   {
     name: 'Sherab',
@@ -58,6 +66,8 @@ const users = [
     postalCode: '80001',
     province: 'Barcelona',
     profilePicture: 'https://avatars.githubusercontent.com/u/34879233?v=4',
+    linkedIn:'https://www.linkedin.com/in/sherab-pereira/?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAACWzk7sBWWShTldMPU7U5mMaoEsSvBjTmnA',
+    github:'https://github.com/OrigenZ',
   },
   {
     name: 'Santiago',
@@ -69,6 +79,8 @@ const users = [
     postalCode: '28001',
     province: 'Madrid',
     profilePicture: 'https://avatars.githubusercontent.com/u/13215841?v=4',
+    linkedIn:'https://www.linkedin.com/in/santiago-jim%C3%A9nez-ortiz-459706bb/',
+    github:'https://github.com/Santys',
   },
   {
     name: 'Nerea',
@@ -80,6 +92,8 @@ const users = [
     postalCode: '280001',
     province: 'Faro',
     profilePicture: 'https://avatars.githubusercontent.com/u/77238108?v=4',
+    linkedIn:'https://www.linkedin.com/in/nereapardo/?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAACOgWncBqevD0SaC_UgQBAEBJ9SsTLBueOk',
+    github:'https://github.com/nereapardo',
   },
   {
     name: 'Guillem',
@@ -91,6 +105,8 @@ const users = [
     postalCode: '28001',
     province: 'Barcelona',
     profilePicture: 'https://avatars.githubusercontent.com/u/10597459?v=4',
+    linkedIn:'https://www.linkedin.com/in/guillemfd/?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAH0qHkBKsRziG7Y5_M-DwiVYbZgJVJxr4Q',
+    gitHub:'https://github.com/guillemfd',
   },
   {
     name: 'Jose',
@@ -102,6 +118,8 @@ const users = [
     postalCode: '28001',
     province: 'Sevilla',
     profilePicture: 'https://avatars.githubusercontent.com/u/91822616?v=4',
+    linkedIn:'linkedin.com/in/josé-ignacio-gutiérrez-cejas-5a2a6a12a',
+    github:'https://github.com/JoseGutierrezCejas',
   },
   {
     name: 'Tatiana',
@@ -113,6 +131,8 @@ const users = [
     postalCode: '28001',
     province: 'Porto',
     profilePicture: 'https://media-exp1.licdn.com/dms/image/C4D03AQGkLCeqm6DsDw/profile-displayphoto-shrink_400_400/0/1636621873932?e=1645056000&v=beta&t=7sjqIK5IHOLG1Apyrh0RJ7EZL-V8TnTpfzkPaTVTEL8',
+    linkedIn:'https://www.linkedin.com/in/tatiana-prada/?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADDP0SUB5LYa3S-GFDFdie00nMWQbmPlhUw',
+    gitHub:'https://github.com/TatianaPrada?tab=following',
   },
   {
     name: 'Raquel',
@@ -124,6 +144,8 @@ const users = [
     postalCode: '46001',
     province: 'Valencia',
     profilePicture: 'https://media-exp1.licdn.com/dms/image/C4D03AQEHDRehk1Q61g/profile-displayphoto-shrink_400_400/0/1636111583515?e=1645056000&v=beta&t=u-XRS4faeDl_U5qEsVkQEMBm1-6SKiddgv2XPT8nZSE',
+    linkedIn:'https://www.linkedin.com/in/raquel-hidalgo-corchuelo/?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADhWKHUBJfDAPLoWmPoGBxX9GIeJXoA2AfQ',
+    gitHub:'https://github.com/raqhidcor',
   },
   {
     name: 'Federico',
@@ -135,6 +157,8 @@ const users = [
     postalCode: '46001',
     province: 'Valencia',
     profilePicture: 'https://res.cloudinary.com/dafy78pru/image/upload/v1639148882/default-candidate-image_yzvjdg.png',
+    linkedIn:'https://www.linkedin.com/school/ironhack/',
+    gitHub:'https://github.com/fede4954',
   },
   {
     name: 'Fernando',
@@ -146,6 +170,8 @@ const users = [
     postalCode: '28001',
     province: 'Madrid',
     profilePicture: 'https://res.cloudinary.com/dafy78pru/image/upload/v1639148882/default-candidate-image_yzvjdg.png',
+    linkedIn:'https://www.linkedin.com/in/fer-full-stack/',
+    gitHub:'https://github.com/FOrtega79',
   },
   {
     name: 'Fernando',
@@ -157,6 +183,8 @@ const users = [
     postalCode: '28000',
     province: 'Estocolmo',
     profilePicture: 'https://media-exp1.licdn.com/dms/image/C4E03AQHagB04nyABDA/profile-displayphoto-shrink_400_400/0/1631754014127?e=1645056000&v=beta&t=qPEztwJDMeZX6YBvDQydVWChmSkLgZzvythjWnRC2ew',
+    linkedIn:'https://www.linkedin.com/in/fernandocases94/?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADQJXasBC_ld-YrE7xWwJxgtHPLSNvYmgXE',
+    gitHub:'https://github.com/Fasping',
   },
   {
     name: 'Jose',
@@ -168,6 +196,8 @@ const users = [
     postalCode: '28000',
     province: 'Salamanca',
     profilePicture: 'https://avatars.githubusercontent.com/u/91371183?v=4',
+    linkedIn:'https://github.com/ValdesDev',
+    gitHub:'https://github.com/ValdesDev',
   },
   {
     name: 'Germán',
@@ -179,6 +209,8 @@ const users = [
     postalCode: '28045',
     province: 'Madrid',
     profilePicture: 'https://cdn.discordapp.com/attachments/904648192711340089/920302562006167572/Captura_de_pantalla_2021-12-14_a_las_14.13.01.png',
+    linkedIn:'https://www.linkedin.com/in/german-alvarez-dev/',
+    gitHub:'https://github.com/german-alvarez-dev',
   },
 
 ];
