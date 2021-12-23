@@ -27,3 +27,14 @@ button.button__submit {
 .error-msg {
   margin-top: 5%;
 }
+
+
+.access{
+  margin-top: 50px;
+}
+
+h2{
+  font-size: 45px;
+  font-family: 'BebasNeue';
+  padding-top: 50px;
+}

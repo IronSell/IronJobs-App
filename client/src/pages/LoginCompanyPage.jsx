@@ -5,6 +5,9 @@ import { Button, Input, Alert } from 'antd';
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
 import * as PATHS from '../utils/paths';
 import * as USER_HELPERS from '../utils/userToken';
+import './auth.css';
+
+
 
 export default function LogIn({ authenticate }) {
   const [form, setForm] = useState({
@@ -38,8 +41,8 @@ export default function LogIn({ authenticate }) {
   }
 
   return (
-    <div className='container'>
-      <h1>Access as a Company</h1>
+    <div className='container access'>
+      <h2>Access as a Company</h2>
       <form onSubmit={handleFormSubmission} className='auth__form'>
         <div className='form-input'>
           <Input

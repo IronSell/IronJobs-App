@@ -38,8 +38,8 @@ export default function LogIn({ authenticate }) {
   }
 
   return (
-    <div className='container login-form'>
-      <h1>Access as a Candidate</h1>
+    <div className='container login-form access'>
+      <h2>Access as a Candidate</h2>
       <form onSubmit={handleFormSubmission} className='auth__form'>
         <div className='form-input'>
           <Input
