@@ -1,43 +1,45 @@
-const router = require('express').Router()
+const router = require('express').Router();
 
 // Models
-const User = require('../models/User.model')
+const User = require('../models/User.model');
 
 // Middleware
-const isLoggedIn = require('../middleware/isLoggedIn')
-const isCompanyLoggedIn = require('../middleware/isCompanyLoggedIn')
+const isLoggedIn = require('../middleware/isLoggedIn');
+const isCompanyLoggedIn = require('../middleware/isCompanyLoggedIn');
 
 // GET candidates page
 router.get('/', isCompanyLoggedIn, async (req, res) => {
   try {
-    const getCandidates = await User.find()
+    const getCandidates = await User.find();
     return res
       .status(200)
-      .json({ message: 'Candidates found 👍', getCandidates })
+      .json({ message: 'Candidates found 👍', getCandidates });
   } catch (err) {
-    return res.status(404).json({ message: 'Page not found' })
+    return res.status(404).json({ message: 'Page not found' });
   }
-})
+});
 
 // GET candidate profile
 router.get('/profile/:_id', isLoggedIn, async (req, res) => {
   try {
-    const showUser = await User.findById(req.params._id)
-    return res.status(200).json({ message: 'Candidate found', showUser })
+    const showUser = await User.findById(req.params._id).populate(
+      'appliedJobs'
+    );
+    return res.status(200).json({ message: 'Candidate found', showUser });
   } catch (err) {
-    return res.status(404).json({ errorMessage: 'This user does not' })
+    return res.status(404).json({ errorMessage: 'This user does not' });
   }
-})
+});
 
 // GET search candidate profile
 router.get('/profile/search/:_id', async (req, res) => {
   try {
-    const showUser = await User.findById(req.params._id)
-    return res.status(200).json({ message: 'Candidate found', showUser })
+    const showUser = await User.findById(req.params._id);
+    return res.status(200).json({ message: 'Candidate found', showUser });
   } catch (err) {
-    return res.status(404).json({ errorMessage: 'This user does not' })
+    return res.status(404).json({ errorMessage: 'This user does not' });
   }
-})
+});
 
 // PUT update candidate profile
 router.put('/:id', async (req, res) => {
@@ -54,7 +56,7 @@ router.put('/:id', async (req, res) => {
     facebook,
     instagram,
     studiesLevel,
-  } = req.body
+  } = req.body;
 
   try {
     const updateCandidate = await User.findByIdAndUpdate(
@@ -73,14 +75,14 @@ router.put('/:id', async (req, res) => {
         instagram,
         studiesLevel,
       },
-      { new: true },
-    )
+      { new: true }
+    );
     return res
       .status(200)
-      .json({ message: 'Candidate edited', updateCandidate })
+      .json({ message: 'Candidate edited', updateCandidate });
   } catch (err) {
-    return res.status(400).json({ message: 'Cannot update the company' })
+    return res.status(400).json({ message: 'Cannot update the company' });
   }
-})
+});
 
-module.exports = router
+module.exports = router;
