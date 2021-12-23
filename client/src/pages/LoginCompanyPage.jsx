@@ -73,7 +73,7 @@ export default function LogIn({ authenticate }) {
 
         {error && (
           <div className='error-msg'>
-            <Alert message='Wrog credentials' type='error' showIcon />
+            <Alert message='Wrong credentials' type='error' showIcon />
           </div>
         )}
 
