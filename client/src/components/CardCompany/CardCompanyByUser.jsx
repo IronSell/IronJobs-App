@@ -4,7 +4,7 @@ import * as PATHS from '../../utils/paths';
 
 const { Meta } = Card;
 
-// import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+
 
 function CardCompanyByUser(props) {
   const {

@@ -1,11 +1,10 @@
 import '../CandidateProfile/CandidateView.styles.css';
 import { useState, useEffect } from 'react';
 import { getSearchCandidateProfile } from '../../services/candidates';
-import { Typography, Descriptions, Divider, Modal, Button } from 'antd';
+import { Typography, Descriptions, Divider, Modal, Button, Tag } from 'antd';
 import {
   LinkedinOutlined,
-  FacebookOutlined,
-  InstagramOutlined,
+  GithubOutlined,
 } from '@ant-design/icons';
 
 function UserProfileView() {
@@ -33,9 +32,10 @@ function UserProfileView() {
     province,
     profilePicture,
     profession,
-    professionalProfiles,
     professionalExperience,
     appliedJobs,
+    linkedIn,
+    github
   } = userProfile;
 
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -134,17 +134,16 @@ function UserProfileView() {
         <section className='media-container'>
           <Title level={3}>Social media</Title>
           <Divider />
-          <Text>
-            <LinkedinOutlined />
-          </Text>
-          <Divider />
-          <Text>
-            <FacebookOutlined />
-          </Text>
-          <Divider />
-          <Text>
-            <InstagramOutlined />
-          </Text>
+          <a href={linkedIn} target='_blank' rel='noreferrer'>
+            <Tag icon={<LinkedinOutlined />} color='#0e76a8'>
+              LinkedIn
+            </Tag>
+          </a>
+          <a href={github} target='_blank' rel='noreferrer'>
+            <Tag icon={<GithubOutlined />} color='#0e76a8'>
+              Github
+            </Tag>
+          </a>
         </section>
         {appliedJobs ? (
           <section className='offers-container'>

@@ -1,10 +1,9 @@
 import './CandidateView.styles.css';
 import { useState } from 'react';
-import { Typography, Descriptions, Divider, Modal, Button } from 'antd';
+import { Typography, Descriptions, Divider, Modal, Button, Tag } from 'antd';
 import {
   LinkedinOutlined,
-  FacebookOutlined,
-  InstagramOutlined,
+  GithubOutlined,
 } from '@ant-design/icons';
 
 function CandidateView(props) {
@@ -18,9 +17,10 @@ function CandidateView(props) {
     province,
     profilePicture,
     profession,
-    professionalProfiles,
     professionalExperience,
     appliedJobs,
+    linkedIn,
+    github,
   } = props.user;
 
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -117,18 +117,16 @@ function CandidateView(props) {
         <section className='media-container'>
           <Title level={3}>Social media</Title>
           <Divider />
-          <Text>
-            <LinkedinOutlined /> /quimiromar
-          </Text>
-          <Divider />
-          <Text>
-            <FacebookOutlined />
-            quimiromar
-          </Text>
-          <Divider />
-          <Text>
-            <InstagramOutlined /> @quimiromar
-          </Text>
+          <a href={linkedIn} target='_blank' rel='noreferrer'>
+            <Tag icon={<LinkedinOutlined />} color='#0e76a8'>
+              LinkedIn
+            </Tag>
+          </a>
+          <a href={github} target='_blank' rel='noreferrer'>
+            <Tag icon={<GithubOutlined />} color='#0e76a8'>
+              Github
+            </Tag>
+          </a>
         </section>
         <section className='offers-container'>
           <Title level={3}>Applied job offers</Title>
