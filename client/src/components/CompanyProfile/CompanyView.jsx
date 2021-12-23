@@ -22,10 +22,10 @@ function CompanyView(props) {
 
   const [company, setCompany] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   const { Title } = Typography;
   const { Panel } = Collapse;
-  const navigate = useNavigate()
 
   useEffect(() => {
     getCompanyProfile(user._id).then((response) => {
@@ -33,12 +33,12 @@ function CompanyView(props) {
       setIsLoading(false);
     });
   }, [user._id]);
- 
- function handleFormSubmission (e) {
-   deleteCompany(user._id).then((res) => {
-     navigate(PATHS.HOMEPAGE)
-   })
- }
+
+  function handleFormSubmission(e) {
+    deleteCompany(user._id).then((res) => {
+      navigate(PATHS.HOMEPAGE);
+    });
+  }
 
   return (
     <>

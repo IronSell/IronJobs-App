@@ -11,7 +11,7 @@ import {
 } from '@ant-design/icons';
 
 const OfferPage = (props) => {
-  const { user } = props;
+  const { user, authenticate } = props;
 
   const apiUrl = process.env.REACT_APP_SERVER_URL;
   let urlStr = window.location.href;
@@ -32,8 +32,10 @@ const OfferPage = (props) => {
   const appliedOffer = () => {
     axios.put(apiUrl + '/offers/' + user._id, {
       data: id,
+    }).then((res) => {
+      authenticate(res.data.offerApplied)
     });
-    navigate(PATHS.HOMEPAGE)
+    navigate(PATHS.CANDIDATEPROFILE)
   };
 
   // const addToFav = (props) => {

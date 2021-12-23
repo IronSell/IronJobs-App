@@ -104,12 +104,12 @@ const Navbar = (props) => {
             </li>
           </>
         )}
-        {/* -----dark mode */}
+        {/* -----dark mode
         <li>
           <button className='theme-btn' onClick={toggleTheme}>
             {theme === 'light' ? 'dark ' : 'light '}
           </button>
-        </li>
+        </li> */}
         </div>
       </ul>
       </div>

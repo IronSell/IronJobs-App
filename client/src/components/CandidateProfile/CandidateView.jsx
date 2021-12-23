@@ -23,6 +23,8 @@ function CandidateView(props) {
     github,
   } = props.user;
 
+  console.log(appliedJobs)
+
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -131,7 +133,9 @@ function CandidateView(props) {
         <section className='offers-container'>
           <Title level={3}>Applied job offers</Title>
           {appliedJobs.map((appliedJob, index) => (
+            <>
             <Text>{appliedJob.jobTitle}</Text>
+            </>
           ))}
         </section>
       </div>

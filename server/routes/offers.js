@@ -43,8 +43,6 @@ router.get('/:jobTitle', async (req, res) => {
 router.put('/:_id', async (req, res) => {
   const candidateId = req.params._id;
   const jobId = req.body.data;
-  console.log(candidateId)
-  console.log(jobId)
   try {
     const offerApplied = await User.findByIdAndUpdate(
       candidateId,
