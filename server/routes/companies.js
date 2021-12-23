@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 // Models
 const Company = require('../models/Company.model');
+const SessionCompany = require('../models/SessionCompany.model');
 
 //Middleware
 const isCompanyLoggedIn = require('../middleware/isCompanyLoggedIn');
@@ -89,10 +90,12 @@ router.put('/:id', async (req, res) => {
 });
 
 //DELETE company profile
-router.delete('/delete/:_id', isCompanyLoggedIn, async (req, res) => {
+router.delete('/delete/:_id', async (req, res) => {
   try {
     const deletedCompany = await Company.findByIdAndDelete(req.params._id);
-    return res.status(200).json({ message: 'Company deleted', deletedCompany });
+    return res
+      .status(200)
+      .json({ message: 'Company deleted', deletedCompany });
   } catch (err) {
     return res.status(400).json({ message: 'Cannot delete the company' });
   }

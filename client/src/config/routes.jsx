@@ -14,6 +14,7 @@ import CandidateProfile from '../pages/CandidateProfilePage/CandidateProfilePage
 import * as PATHS from '../utils/paths';
 import EditCompanyPage from '../pages/EditCompanyPage/EditCompanyPage'
 import EditCandidatePage from '../pages/EditCandidatePage/EditCandidatePage';
+import UserProfile from '../pages/UserProfile/UserProfile';
 
 const routes = (props) => {
   const { user } = props;
@@ -57,6 +58,10 @@ const routes = (props) => {
       ) : (
         <Navigate to={PATHS.HOMEPAGE} replace />
       ),
+    },
+    {
+      path: PATHS.CANDIDATEPROFILEFORCOMPANY,
+      element: <UserProfile {...props} />,
     },
     {
       path: PATHS.SIGNUPCANDIDATEPAGE,

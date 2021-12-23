@@ -1,5 +1,6 @@
-import './CandidateView.styles.css';
-import { useState } from 'react';
+import '../CandidateProfile/CandidateView.styles.css';
+import { useState, useEffect } from 'react';
+import { getSearchCandidateProfile } from '../../services/candidates';
 import { Typography, Descriptions, Divider, Modal, Button } from 'antd';
 import {
   LinkedinOutlined,
@@ -7,7 +8,21 @@ import {
   InstagramOutlined,
 } from '@ant-design/icons';
 
-function CandidateView(props) {
+function UserProfileView() {
+  const [userProfile, setUserProfile] = useState([]);
+
+  let urlStr = window.location.href;
+  let url = new URL(urlStr);
+  let search_params = url.searchParams;
+  let id = search_params.get('id');
+
+  useEffect(() => {
+    getSearchCandidateProfile(id).then((response) => {
+      console.log(response.data);
+      setUserProfile(response.data.showUser);
+    });
+  }, [id]);
+
   const {
     name,
     lastName,
@@ -21,7 +36,7 @@ function CandidateView(props) {
     professionalProfiles,
     professionalExperience,
     appliedJobs,
-  } = props.user;
+  } = userProfile;
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -81,64 +96,75 @@ function CandidateView(props) {
           <div className='professional-experience'>
             <Title level={3}>Professional experience</Title>
             <section>
-              {professionalExperience.map((job, index) => (
-                <div className='professional-experience-info'>
-                  <Text level={4}>{job.jobTitle}</Text>
-                  <Text>{job.companyName}</Text>
-                  <Text>
-                    {new Date(job.startDate).toLocaleDateString('es-ES')}
-                  </Text>
-                  <span>-</span>
-                  {job.endDate ? (
+              {professionalExperience ? (
+                professionalExperience.map((job, index) => (
+                  <div className='professional-experience-info'>
+                    <Text level={4}>{job.jobTitle}</Text>
+                    <Text>{job.companyName}</Text>
                     <Text>
-                      {new Date(job.endDate).toLocaleDateString('es-ES')}
+                      {new Date(job.startDate).toLocaleDateString('es-ES')}
                     </Text>
-                  ) : (
-                    <Text>Present</Text>
-                  )}
-                  <Button type='default' onClick={showModal}>
-                    See details
-                  </Button>
-                  <Modal
-                    title={job.jobTitle}
-                    visible={isModalVisible}
-                    onOk={handleOk}
-                    onCancel={handleCancel}
-                  >
-                    <Text level={4}>{job.jobDescription}</Text>
-                  </Modal>
-                </div>
-              ))}
-              {/* <Link to={}></Link> */}
+                    <span>-</span>
+                    {job.endDate ? (
+                      <Text>
+                        {new Date(job.endDate).toLocaleDateString('es-ES')}
+                      </Text>
+                    ) : (
+                      <Text>Present</Text>
+                    )}
+                    <Button type='default' onClick={showModal}>
+                      See details
+                    </Button>
+                    <Modal
+                      title={job.jobTitle}
+                      visible={isModalVisible}
+                      onOk={handleOk}
+                      onCancel={handleCancel}
+                    >
+                      <Text level={4}>{job.jobDescription}</Text>
+                    </Modal>
+                  </div>
+                ))
+              ) : (
+                <Button type='primary'>Add new experience</Button>
+              )}
             </section>
           </div>
         </div>
-
         <section className='media-container'>
           <Title level={3}>Social media</Title>
           <Divider />
           <Text>
-            <LinkedinOutlined /> /quimiromar
+            <LinkedinOutlined />
           </Text>
           <Divider />
           <Text>
             <FacebookOutlined />
-            quimiromar
           </Text>
           <Divider />
           <Text>
-            <InstagramOutlined /> @quimiromar
+            <InstagramOutlined />
           </Text>
         </section>
-        <section className='offers-container'>
+        {appliedJobs ? (
+          <section className='offers-container'>
           <Title level={3}>Applied job offers</Title>
           {appliedJobs.map((appliedJob, index) => (
             <Text>{appliedJob.jobTitle}</Text>
           ))}
         </section>
+        ) : (
+          <Text>You do not have applied to any job yet</Text>
+        )}
+        {/* <section className='offers-container'>
+          <Title level={3}>Applied job offers</Title>
+          {appliedJobs.map((appliedJob, index) => (
+            <Text>{appliedJob.jobTitle}</Text>
+          ))}
+        </section> */}
       </div>
     </main>
   );
 }
 
-export default CandidateView;
+export default UserProfileView;

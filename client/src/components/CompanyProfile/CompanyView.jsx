@@ -1,7 +1,7 @@
 import './CompanyProfile.css';
 import {
   Typography,
-  // Anchor,
+  Button,
   Descriptions,
   Collapse,
   Tag,
@@ -12,9 +12,10 @@ import {
   FacebookOutlined,
   InstagramOutlined,
 } from '@ant-design/icons';
-import { useState } from 'react';
-import { useEffect } from 'react/cjs/react.development';
-import { getCompanyProfile } from '../../services/companies';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getCompanyProfile, deleteCompany } from '../../services/companies';
+import * as PATHS from '../../utils/paths';
 
 function CompanyView(props) {
   const { user } = props;
@@ -24,7 +25,7 @@ function CompanyView(props) {
 
   const { Title } = Typography;
   const { Panel } = Collapse;
-  // const { Link } = Anchor;
+  const navigate = useNavigate()
 
   useEffect(() => {
     getCompanyProfile(user._id).then((response) => {
@@ -32,17 +33,23 @@ function CompanyView(props) {
       setIsLoading(false);
     });
   }, [user._id]);
+ 
+ function handleFormSubmission (e) {
+   deleteCompany(user._id).then((res) => {
+     navigate(PATHS.HOMEPAGE)
+   })
+ }
 
   return (
     <>
       {isLoading ? (
-        <>
+        <div className='container'>
           <Skeleton active />
           <Skeleton active />
           <Skeleton active />
           <Skeleton active />
           <Skeleton active />
-        </>
+        </div>
       ) : (
         company.map((info, index) => (
           <main className='container'>
@@ -54,6 +61,11 @@ function CompanyView(props) {
                   alt={info.name}
                 />
                 <Title level={3}>{info.name}</Title>
+                <form onSubmit={handleFormSubmission}>
+                  <Button type='danger' htmlType='submit'>
+                    Delete Account
+                  </Button>
+                </form>
                 <div className='logo-container'></div>
               </div>
               <div className='info-container'>

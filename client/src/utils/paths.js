@@ -12,3 +12,4 @@ export const EDITCOMPANYPROFILE = `${COMPANYPROFILE}/update`;
 export const CANDIDATESPAGE = '/candidates';
 export const CANDIDATEPROFILE = '/candidate/profile';
 export const EDITCANDIDATEPROFILE = `${CANDIDATESPAGE}/update`;
+export const CANDIDATEPROFILEFORCOMPANY = '/candidate/search/profile';

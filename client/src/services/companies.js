@@ -49,7 +49,11 @@ export function getCompanies() {
 
 export function deleteCompany(id) {
   return companiesService
-    .get('/delete' + id)
+    .delete('/delete/' + id, {
+      headers: {
+        Authorization: USER_HELPERS.removeUserToken(),
+      },
+    })
     .then(successStatus)
     .catch(internalServerError);
 }

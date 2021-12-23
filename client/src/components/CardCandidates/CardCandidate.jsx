@@ -14,7 +14,7 @@ function CardCandidate(props) {
         <h6>{province}</h6>
         <p>{profession}</p>
         <div className='buttons'>
-          <Link to={PATHS.CANDIDATEPROFILE + '?id=' + _id}>
+          <Link to={PATHS.CANDIDATEPROFILEFORCOMPANY + '?id=' + _id}>
             <button className='primary'>Profile</button>
           </Link>
         </div>

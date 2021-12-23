@@ -54,6 +54,18 @@ export function getCandidateProfile(id) {
     .then(successStatus)
     .catch(internalServerError);
 }
+
+export function getSearchCandidateProfile(id) {
+  return candidatesService
+    .get('/profile/search/' + id, {
+      headers: {
+        Authorization: USER_HELPERS.getUserToken(),
+      },
+    })
+    .then(successStatus)
+    .catch(internalServerError);
+}
+
 export function updateCandidateProfile(_id, body) {
   return candidatesService
     .put('/' + _id, body)

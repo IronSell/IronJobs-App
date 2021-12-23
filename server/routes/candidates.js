@@ -29,6 +29,16 @@ router.get('/profile/:_id', isLoggedIn, async (req, res) => {
   }
 })
 
+// GET search candidate profile
+router.get('/profile/search/:_id', async (req, res) => {
+  try {
+    const showUser = await User.findById(req.params._id)
+    return res.status(200).json({ message: 'Candidate found', showUser })
+  } catch (err) {
+    return res.status(404).json({ errorMessage: 'This user does not' })
+  }
+})
+
 // PUT update candidate profile
 router.put('/:id', async (req, res) => {
   const {

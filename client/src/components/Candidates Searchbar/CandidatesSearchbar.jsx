@@ -6,10 +6,12 @@ const Candidatessearchbar = (props) => {
   const { candidatesList, setFilteredCandidates } = props;
 
   const handleInputChange = (word) => {
+    
     const searchCandidates = candidatesList.filter((candidate) => {
-      return candidate.name.toLowerCase().includes(word.toLowerCase());
+      return candidate.profession.toLowerCase().includes(word.toLowerCase());
     });
     setFilteredCandidates(searchCandidates);
+    console.log(candidatesList.profession)
   };
 
   return (
