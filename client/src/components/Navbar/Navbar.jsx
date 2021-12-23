@@ -18,7 +18,7 @@ const Navbar = (props) => {
         <div className='links'>
         <li>
           <Link to={PATHS.HOMEPAGE} className='nav__projectName'>
-            IronJob
+            IronJobs
           </Link>
         </li>
         <li>
