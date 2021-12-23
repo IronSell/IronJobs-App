@@ -12,7 +12,7 @@ function CardOffer(props) {
   return (
     <div className='ant-card-hoverable '>
       <Link to={PATHS.OFFERPAGE + '?id=' + searchOffers._id}>
-        <p className='companyOffer'>{searchOffers.company}</p>
+        {/* <p className='companyOffer'>{searchOffers.company}</p> */}
         <List
           itemLayout='horizontal'
           dataSource={data}

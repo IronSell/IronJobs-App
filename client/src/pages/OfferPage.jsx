@@ -54,15 +54,13 @@ const OfferPage = (props) => {
                 alt='Company logo'
               />
             </div>
-            <div className='col-md-8'>
-              <div className='card-block'>
-                <h1 className='card-title'>{offer.jobTitle}</h1>
-                <hr />
-                <p className='card-text text-justify'>{offer.requirements}</p>
-                <p className='card-text text-justify'>{offer.description}</p>
-                <p className='card-text text-justify color-description-offer'>
-                  {offer.experienceYears}
-                </p>
+            <div className="col-md-8">
+              <div className="card-block">
+                <h1 className="card-title">{offer.jobTitle}</h1>
+                <hr/>
+                <p className="card-text text-justify">{offer.requirements}</p>
+                <p className="card-text text-justify">{offer.description}</p>
+                <p className="card-text text-justify color-description-offer">{offer.experienceYears}</p>
                 <p className='space cardOfferBorderListItem'>
                   <span>
                     <EnvironmentOutlined className='offerLogo' />
