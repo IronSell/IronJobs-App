@@ -2,7 +2,8 @@ const router = require('express').Router();
 
 //Models
 const JobOffer = require('../models/JobOffer.model');
-const User = require('../models/User.model')
+const User = require('../models/User.model');
+
 //Middleware
 const isLoggedIn = require('../middleware/isLoggedIn');
 const isLoggedOut = require('../middleware/isLoggedOut');
@@ -38,17 +39,23 @@ router.get('/:jobTitle', async (req, res) => {
   }
 });
 
-// UPDATE/EDIT job offer
-router.patch('/:_id', isLoggedIn, async (req, res) => {
+// PUT apply job
+router.put('/:_id', async (req, res) => {
+  const candidateId = req.params._id;
+  const jobId = req.body.data;
+  console.log(candidateId)
+  console.log(jobId)
   try {
-    const updatedJobOffer = await JobOffer.findByIdAndUpdate(req.params._id);
+    const offerApplied = await User.findByIdAndUpdate(
+      candidateId,
+        { $push: {appliedJobs: jobId}},
+        {safe: true, upsert: true, new: true}
+    );
     return res
       .status(200)
-      .json({ message: 'Offer updated successfuly', updatedJobOffer });
+      .json({ message: 'You have applied successfuly', offerApplied });
   } catch (err) {
-    return res
-      .status(400)
-      .json({ message: 'Cannot update job offer', updatedJobOffer });
+    return res.status(400).json({ message: 'There was an error when applying' });
   }
 });
 
@@ -63,18 +70,26 @@ router.delete('/delete/:_id', isLoggedIn, async (req, res) => {
 });
 
 // Add to saved jobs
-router.patch('/favorites/:user_id/company/:job_id', isLoggedIn, async (req, res) => {
+router.patch(
+  '/favorites/:user_id/company/:job_id',
+  isLoggedIn,
+  async (req, res) => {
+    const userId = req.params.user_id;
+    const jobId = req.params.job_id;
 
-  const userId = req.params.user_id
-  const jobId = req.params.job_id
-
-  try {
-    const updatedUser = await User.findByIdAndUpdate(userId, { $push: { "savedJobs": jobId } }, { safe: true, upsert: true, new: true })
-    return res.status(200).json({ message: 'Offer add to favorites', updatedUser })
-  } catch (err) {
-    return res.status(404).json({ errorMessage: 'Cannot add to favorites' });
+    try {
+      const updatedUser = await User.findByIdAndUpdate(
+        userId,
+        { $push: { savedJobs: jobId } },
+        { safe: true, upsert: true, new: true }
+      );
+      return res
+        .status(200)
+        .json({ message: 'Offer add to favorites', updatedUser });
+    } catch (err) {
+      return res.status(404).json({ errorMessage: 'Cannot add to favorites' });
+    }
   }
-
-})
+);
 
 module.exports = router;

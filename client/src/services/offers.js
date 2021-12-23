@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as USER_HELPERS from '../utils/userToken';
 
 function internalServerError(err) {
   if (err.response && err.response.data && err.response.data.errorMessage) {
@@ -33,4 +34,15 @@ export function getOffer(id) {
 
 export function getOffers() {
   return getOffersService.get().then(successStatus).catch(internalServerError);
+}
+
+export function applyOffer(id, jobOffer) {
+  return getOffersService
+    .put('/' + id, jobOffer, {
+      headers: {
+        Authorization: USER_HELPERS.getUserToken()
+      }
+    })
+    .then(successStatus)
+    .catch(internalServerError)
 }
