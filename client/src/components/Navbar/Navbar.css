@@ -40,17 +40,26 @@ nav li {
   font-size: 1.2rem;
 }
 
+.nav__projectName:hover {
+  color: #fff;
+}
+
 .authLink {
   font-size: 1.2rem;
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }
+
 .OfferAndCompanyColor {
   font-size: 1.2rem;
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
+}
+
+.OfferAndCompanyColor:hover {
+  color: #fff;
 }
 
 .authLink + .authLink {

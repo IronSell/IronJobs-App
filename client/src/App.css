@@ -13,7 +13,7 @@
 .container h1 {
   font-size: 2.5rem;
   padding-top: 70px;
-  margin-bottom: .3em;
+  margin-bottom: 0.3em;
 }
 
 .row {
@@ -88,72 +88,65 @@ hr {
   flex-wrap: wrap;
   padding-bottom: 70px;
 }
-.color-description-offer{
+.color-description-offer {
   color: #76cacc;
   font-weight: bold;
-
 }
-.border-color{
+.border-color {
   border: 2.5px rgb(238, 238, 238) solid;
   box-shadow: 0px 0px 11px -3px #000000;
 }
-.ApllyButton{
-  display:inline-block;
-  padding:0.3em 1.2em;
-  margin:0 0.3em 0.3em 0;
-  border-radius:5px;
+.ApllyButton {
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 5px;
   box-sizing: border-box;
-  text-decoration:none;
-  font-family:'Roboto',sans-serif;
-  font-weight:300;
-  color:#FFFFFF;
-  background-color:#76cacc;
-  text-align:center;
-  transition: all 0.2s;;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  background-color: #76cacc;
+  text-align: center;
+  transition: all 0.2s;
 }
-.ApllyButton:hover{
-  background-color:#6ac640;
-
+.ApllyButton:hover {
+  background-color: #6ac640;
 }
-.companiesHomePage{
+.companiesHomePage {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding-bottom: 70px;
 }
-h2{
+h2 {
   font-size: 45px;
   font-family: 'BebasNeue';
   padding-top: 50px;
 }
 
-.bebasNeue h1{
+.bebasNeue h1 {
   margin-top: 30px;
   font-size: 50px;
   font-family: 'BebasNeue';
   padding-top: 50px;
-
 }
 
-
-.offerPage img{
+.offerPage img {
   width: 230px;
   height: 200px;
   /* object-fit: cover; */
   margin-bottom: 50px;
 }
 
-
-.offerPage h1{
+.offerPage h1 {
   padding-top: 0px;
   font-family: 'BebasNeue';
-
 }
-.space{
+.space {
   padding-bottom: 20px;
 }
-.offerPage button{
+.offerPage button {
   /* padding:10px; */
   margin-bottom: 20px;
 }
-

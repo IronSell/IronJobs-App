@@ -9,7 +9,6 @@ import {
 } from '@ant-design/icons'
 import * as PATHS from '../../utils/paths'
 import { getCompanyProfile, deleteCompany } from '../../services/companies'
-import { removeUserToken } from '../../utils/userToken'
 import './CompanyProfile.css'
 
 function CompanyView(props) {
