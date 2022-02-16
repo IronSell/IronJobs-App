@@ -12,7 +12,7 @@
   .candidate-logo-container {
     margin-top: 20px;
     margin-right: 20px;
-    height: 300px;
+    height: 280px;
     width: 340px;
     border: 1px solid rgb(238, 238, 238);
     border-radius: 5px;
@@ -22,8 +22,8 @@
 
   .candidate-logo {
     width: auto;
-    height: 220px;
-    margin-top: 18px;
+    height: 180px;
+    margin-top: 10px;
     border: 4px solid #e0e0e0;
     border-radius: 50%;
     object-fit: cover;
@@ -88,13 +88,13 @@
     padding-bottom: 20px;
     align-items: center;
   }
-  .media-container a{
+  .media-container a {
     padding: 5px;
     border-radius: 5px;
   }
-  .media-container svg{
-   justify-content: last baseline;
-   vertical-align: text-top;
+  .media-container svg {
+    justify-content: last baseline;
+    vertical-align: text-top;
   }
 
   .offers-container {
@@ -105,6 +105,11 @@
     border-radius: 5px;
     -webkit-box-shadow: 0px 0px 8px -5px #000000;
     box-shadow: 0px 0px 8px -5px #000000;
+  }
+
+  .offers-container li {
+    list-style: none;
+    text-align: left;
   }
 }
 

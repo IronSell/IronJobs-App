@@ -1,15 +1,17 @@
-import './CandidateView.styles.css';
-import { useState } from 'react';
-import { Typography, Descriptions, Divider, Modal, Button, Tag } from 'antd';
-import {
-  LinkedinOutlined,
-  GithubOutlined,
-} from '@ant-design/icons';
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+import { deleteCompany } from '../../services/companies'
+import * as PATHS from '../../utils/paths'
+import { Typography, Descriptions, Divider, Modal, Button, Tag } from 'antd'
+import { LinkedinOutlined, GithubOutlined } from '@ant-design/icons'
+import './CandidateView.styles.css'
 
 function CandidateView(props) {
   const {
     name,
     lastName,
+    _id,
     email,
     birth,
     telephoneNumber,
@@ -21,70 +23,81 @@ function CandidateView(props) {
     appliedJobs,
     linkedIn,
     github,
-  } = props.user;
+  } = props.user
 
-  console.log(appliedJobs)
+  const [isModalVisible, setIsModalVisible] = useState(false)
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const navigate = useNavigate()
 
   const showModal = () => {
-    setIsModalVisible(true);
-  };
+    setIsModalVisible(true)
+  }
 
   const handleOk = () => {
-    setIsModalVisible(false);
-  };
+    setIsModalVisible(false)
+  }
 
   const handleCancel = () => {
-    setIsModalVisible(false);
-  };
+    setIsModalVisible(false)
+  }
 
-  const birthDate = new Date(birth);
+  const birthDate = new Date(birth)
 
-  const { Title, Text } = Typography;
+  const { Title, Text } = Typography
+
+  const handleFormSubmission = () => {
+    deleteCompany(_id).then((res) => {
+      navigate(PATHS.HOMEPAGE)
+    })
+  }
 
   return (
-    <main className='container'>
-      <div className='CandidateView'>
-        <section className='candidate-logo-container'>
+    <main className="container">
+      <div className="CandidateView">
+        <section className="candidate-logo-container">
           <img
-            className='candidate-logo'
+            className="candidate-logo"
             src={profilePicture}
             alt={name + '' + lastName}
           />
           <Title level={3}>
             {name} {lastName}
           </Title>
-          <div className='logo-container'></div>
+          <form onSubmit={handleFormSubmission}>
+            <Button type="danger" htmlType="submit">
+              Delete Account
+            </Button>
+          </form>
+          <div className="logo-container"></div>
         </section>
         <div>
-          <section className='info-container'>
+          <section className="info-container">
             <Descriptions
-              title='My personal data'
+              title="My personal data"
               bordered
               column={{ lg: 3, md: 2, sm: 1, xs: 1 }}
             >
-              <Descriptions.Item label='Email'>{email}</Descriptions.Item>
-              <Descriptions.Item label='Telephone number'>
+              <Descriptions.Item label="Email">{email}</Descriptions.Item>
+              <Descriptions.Item label="Telephone number">
                 {telephoneNumber}
               </Descriptions.Item>
-              <Descriptions.Item label='Date of birth'>
+              <Descriptions.Item label="Date of birth">
                 {birthDate.toLocaleDateString('es-ES')}
               </Descriptions.Item>
-              <Descriptions.Item label='Profession'>
+              <Descriptions.Item label="Profession">
                 {profession}
               </Descriptions.Item>
-              <Descriptions.Item label='Province'>{province}</Descriptions.Item>
-              <Descriptions.Item label='Postal code'>
+              <Descriptions.Item label="Province">{province}</Descriptions.Item>
+              <Descriptions.Item label="Postal code">
                 {postalCode}
               </Descriptions.Item>
             </Descriptions>
           </section>
-          <div className='professional-experience'>
+          <div className="professional-experience">
             <Title level={3}>Professional experience</Title>
             <section>
               {professionalExperience.map((job, index) => (
-                <div className='professional-experience-info'>
+                <div className="professional-experience-info">
                   <Text level={4}>{job.jobTitle}</Text>
                   <Text>{job.companyName}</Text>
                   <Text>
@@ -98,7 +111,7 @@ function CandidateView(props) {
                   ) : (
                     <Text>Present</Text>
                   )}
-                  <Button type='default' onClick={showModal}>
+                  <Button type="default" onClick={showModal}>
                     See details
                   </Button>
                   <Modal
@@ -116,31 +129,31 @@ function CandidateView(props) {
           </div>
         </div>
 
-        <section className='media-container'>
+        <section className="media-container">
           <Title level={3}>Social media</Title>
           <Divider />
-          <a href={linkedIn} target='_blank' rel='noreferrer'>
-            <Tag icon={<LinkedinOutlined />} color='#0e76a8'>
+          <a href={linkedIn} target="_blank" rel="noreferrer">
+            <Tag icon={<LinkedinOutlined />} color="#0e76a8">
               LinkedIn
             </Tag>
           </a>
-          <a href={github} target='_blank' rel='noreferrer'>
-            <Tag icon={<GithubOutlined />} color='#0e76a8'>
+          <a href={github} target="_blank" rel="noreferrer">
+            <Tag icon={<GithubOutlined />} color="#0e76a8">
               Github
             </Tag>
           </a>
         </section>
-        <section className='offers-container'>
+        <section className="offers-container">
           <Title level={3}>Applied job offers</Title>
           {appliedJobs.map((appliedJob, index) => (
-            <>
-            <Text>{appliedJob.jobTitle}</Text>
-            </>
+            <ul>
+              <li key={appliedJob._id}>{appliedJob.jobTitle}</li>
+            </ul>
           ))}
         </section>
       </div>
     </main>
-  );
+  )
 }
 
-export default CandidateView;
+export default CandidateView

@@ -28,7 +28,7 @@ function CompanyView(props) {
     })
   }, [user._id])
 
-  function handleFormSubmission(e) {
+  const handleFormSubmission = () => {
     deleteCompany(user._id).then((res) => {
       navigate(PATHS.HOMEPAGE)
     })
@@ -42,11 +42,10 @@ function CompanyView(props) {
           <Skeleton active />
           <Skeleton active />
           <Skeleton active />
-          <Skeleton active />
         </div>
       ) : (
-        company.map((info, index) => (
-          <main className="container">
+        company.map((info) => (
+          <main key={info._id} className="container">
             <div className="CompanyView">
               <div className="company-logo-container">
                 <img
@@ -116,7 +115,11 @@ function CompanyView(props) {
               </div>
               <div className="offers-container">
                 <Title level={3}>Active job vacancies</Title>
-                {info.jobOffers.map((offer, index) => offer.jobTitle)}
+                {info.jobOffers.map((offer) => (
+                  <ul>
+                    <li key={offer._id}>{offer.jobTitle}</li>
+                  </ul>
+                ))}
               </div>
             </div>
           </main>

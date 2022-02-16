@@ -23,7 +23,7 @@ const CompanyPage = () => {
     getCompany(id).then((response) => {
       setCompany(response.data.showCompany)
     })
-  }, [])
+  }, [id])
 
   return (
     <main className="container">
