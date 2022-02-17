@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.e11e1135.css",
-    "main.js": "/static/js/main.3fca383e.js",
+    "main.css": "/static/css/main.eaddf11b.css",
+    "main.js": "/static/js/main.71f994f9.js",
     "static/media/Anton-Regular.ttf": "/static/media/Anton-Regular.db746a1872bfcd092bf8.ttf",
     "static/media/BebasNeue-Regular.ttf": "/static/media/BebasNeue-Regular.9aa03f9d52866893add5.ttf",
     "index.html": "/index.html",
-    "main.e11e1135.css.map": "/static/css/main.e11e1135.css.map",
-    "main.3fca383e.js.map": "/static/js/main.3fca383e.js.map"
+    "main.eaddf11b.css.map": "/static/css/main.eaddf11b.css.map",
+    "main.71f994f9.js.map": "/static/js/main.71f994f9.js.map"
   },
   "entrypoints": [
-    "static/css/main.e11e1135.css",
-    "static/js/main.3fca383e.js"
+    "static/css/main.eaddf11b.css",
+    "static/js/main.71f994f9.js"
   ]
 }
