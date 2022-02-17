@@ -5,13 +5,15 @@ import CandidatesSearchbar from '../components/Candidates Searchbar/CandidatesSe
 import CardCandidate from '../components/CardCandidates/CardCandidate'
 import { getCandidates } from '../services/candidates'
 import * as PATHS from '../utils/paths'
+import { Skeleton } from 'antd'
 
 const CandidatesPage = (props) => {
   const { user } = props
 
-  const navigate = useNavigate()
   const [fileteredCandidates, setFilteredCandidates] = useState([])
   const [candidatesList, setCandidatesList] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const navigate = useNavigate()
 
   useEffect(() => {
     !user
@@ -19,6 +21,7 @@ const CandidatesPage = (props) => {
       : getCandidates().then((response) => {
           setCandidatesList(response.data.getCandidates)
           setFilteredCandidates(response.data.getCandidates)
+          setIsLoading(false)
         })
   }, [navigate, user])
 
@@ -30,12 +33,20 @@ const CandidatesPage = (props) => {
         candidatesList={candidatesList}
       />
       <div className="flexbox">
-        {fileteredCandidates?.map((getCandidates) => (
-          <CardCandidate
-            getCandidates={getCandidates}
-            key={getCandidates._id}
-          />
-        ))}
+        {isLoading ? (
+          <div className="skeleton">
+            <Skeleton avatar paragraph={{ rows: 4 }} />
+            <Skeleton avatar paragraph={{ rows: 4 }} />
+            <Skeleton avatar paragraph={{ rows: 4 }} />
+          </div>
+        ) : (
+          fileteredCandidates?.map((getCandidates) => (
+            <CardCandidate
+              getCandidates={getCandidates}
+              key={getCandidates._id}
+            />
+          ))
+        )}
       </div>
     </div>
   )

@@ -150,3 +150,8 @@ h2 {
   /* padding:10px; */
   margin-bottom: 20px;
 }
+
+.skeleton {
+  display: flex;
+  width: 80vw;
+}

@@ -1,11 +1,15 @@
 .CompanyView {
-      padding-top: 70px;
+  padding-top: 70px;
+}
+
+.skeleton__2 {
+  margin-top: 150px;
+  width: auto;
 }
 
 @media (min-width: 992px) {
   .CompanyView {
     display: flex;
-    /* justify-content: center; */
     flex-wrap: wrap;
   }
 
@@ -69,13 +73,13 @@
     padding-bottom: 20px;
     align-items: center;
   }
-  .media-container a{
+  .media-container a {
     padding: 5px;
     border-radius: 5px;
   }
-  .media-container svg{
-   justify-content: last baseline;
-   vertical-align: text-top;
+  .media-container svg {
+    justify-content: last baseline;
+    vertical-align: text-top;
   }
   .offers-container {
     margin-top: 20px;
@@ -92,13 +96,37 @@
   }
 
   .company-description p {
-    word-spacing: .5px;
+    word-spacing: 0.5px;
     text-align: justify;
   }
 }
 
-
-.instagram{
-  background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
-color: aliceblue;
+.instagram {
+  background: radial-gradient(
+      circle farthest-corner at 35% 90%,
+      #fec564,
+      transparent 50%
+    ),
+    radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+    radial-gradient(
+      ellipse farthest-corner at 20% -50%,
+      #5258cf,
+      transparent 50%
+    ),
+    radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+    radial-gradient(
+      ellipse farthest-corner at 60% -20%,
+      #893dc2,
+      transparent 50%
+    ),
+    radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+    linear-gradient(
+      #6559ca,
+      #bc318f 30%,
+      #e33f5f 50%,
+      #f77638 70%,
+      #fec66d 100%
+    );
+  color: aliceblue;
 }

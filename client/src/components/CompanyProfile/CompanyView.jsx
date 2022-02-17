@@ -38,10 +38,9 @@ function CompanyView(props) {
     <>
       {isLoading ? (
         <div className="container">
-          <Skeleton active />
-          <Skeleton active />
-          <Skeleton active />
-          <Skeleton active />
+          <div className="skeleton__2">
+            <Skeleton avatar paragraph={{ rows: 4 }} />
+          </div>
         </div>
       ) : (
         company.map((info) => (
