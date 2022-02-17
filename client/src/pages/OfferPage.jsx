@@ -80,7 +80,7 @@ const OfferPage = (props) => {
                   </span>{' '}
                   {offer.schedule}{' '}
                 </p>
-                {user.isCompany ? (
+                {!user || user.isCompany ? (
                   <Link to={PATHS.LOGINCANDIDATEPAGE}>
                     <Button type="primary">Apply</Button>
                   </Link>
