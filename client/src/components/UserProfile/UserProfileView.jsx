@@ -22,7 +22,6 @@ function UserProfileView() {
   const {
     name,
     lastName,
-    _id,
     email,
     birth,
     telephoneNumber,
@@ -96,7 +95,7 @@ function UserProfileView() {
             <section>
               {professionalExperience ? (
                 professionalExperience.map((job) => (
-                  <div key={_id} className="professional-experience-info">
+                  <div className="professional-experience-info">
                     <Text level={4}>{job.jobTitle}</Text>
                     <Text>{job.companyName}</Text>
                     <Text>

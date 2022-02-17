@@ -1,24 +1,26 @@
-import * as PATHS from '../../utils/paths';
-import { Link } from 'react-router-dom';
-import './CardCandidate.css';
+import * as PATHS from '../../utils/paths'
+import { Link } from 'react-router-dom'
+import './CardCandidate.css'
 
 function CardCandidate(props) {
-  const { name, lastName, province, profession, profilePicture, _id, skills } =
-    props.getCandidates;
+  const { name, lastName, province, profession, profilePicture, _id } =
+    props.getCandidates
   return (
-    <div className='cardCandidate'>
+    <div className="cardCandidate">
       {/* <Link to={PATHS.CANDIDATEPROFILE + '?id=' + _id}> */}
-      <div className='card-container'>
-        <img className='round' src={profilePicture} alt='user' />
-        <h3>{name} {lastName}</h3>
+      <div className="card-container">
+        <img className="round" src={profilePicture} alt="user" />
+        <h3>
+          {name} {lastName}
+        </h3>
         <h6>{province}</h6>
         <p>{profession}</p>
-        <div className='buttons'>
+        <div className="buttons">
           <Link to={PATHS.CANDIDATEPROFILEFORCOMPANY + '?id=' + _id}>
-            <button className='primary'>Profile</button>
+            <button className="primary">Profile</button>
           </Link>
         </div>
-        <div className='skills'>
+        <div className="skills">
           <h6>Skills</h6>
           <ul>
             {/* {skills.map((skill) => (
@@ -34,7 +36,7 @@ function CardCandidate(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default CardCandidate;
+export default CardCandidate

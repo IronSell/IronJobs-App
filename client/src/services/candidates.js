@@ -1,36 +1,36 @@
-import axios from 'axios';
-import * as USER_HELPERS from '../utils/userToken';
+import axios from 'axios'
+import * as USER_HELPERS from '../utils/userToken'
 
 function internalServerError(err) {
   if (err.response && err.response.data && err.response.data.errorMessage) {
     return {
       status: false,
       errorMessage: err.response.data.errorMessage,
-    };
+    }
   }
   return {
     status: false,
     errorMessage: 'Internal server error. Please check your server',
-  };
+  }
 }
 
 function successStatus(res) {
   return {
     status: true,
     data: res.data,
-  };
+  }
 }
 
 const candidatesService = axios.create({
-  baseURL: `${process.env.REACT_APP_SERVER_URL}/candidates`,
-});
+  baseURL: `${process.env.REACT_APP_BASE_URL}/candidates`,
+})
 
 // GET candidate profile
 export function getCandidate(id) {
   return candidatesService
     .get('/' + id)
     .then(successStatus)
-    .catch(internalServerError);
+    .catch(internalServerError)
 }
 
 export function getCandidates() {
@@ -41,7 +41,7 @@ export function getCandidates() {
       },
     })
     .then(successStatus)
-    .catch(internalServerError);
+    .catch(internalServerError)
 }
 
 export function getCandidateProfile(id) {
@@ -52,7 +52,7 @@ export function getCandidateProfile(id) {
       },
     })
     .then(successStatus)
-    .catch(internalServerError);
+    .catch(internalServerError)
 }
 
 export function getSearchCandidateProfile(id) {
@@ -63,12 +63,12 @@ export function getSearchCandidateProfile(id) {
       },
     })
     .then(successStatus)
-    .catch(internalServerError);
+    .catch(internalServerError)
 }
 
 export function updateCandidateProfile(_id, body) {
   return candidatesService
     .put('/' + _id, body)
     .then(successStatus)
-    .catch(internalServerError);
+    .catch(internalServerError)
 }

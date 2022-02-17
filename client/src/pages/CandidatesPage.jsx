@@ -1,35 +1,35 @@
-import '../App.css';
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import CandidatesSearchbar from '../components/Candidates Searchbar/CandidatesSearchbar';
-import CardCandidate from '../components/CardCandidates/CardCandidate';
-import { getCandidates } from '../services/candidates';
-import * as PATHS from '../utils/paths';
+import '../App.css'
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import CandidatesSearchbar from '../components/Candidates Searchbar/CandidatesSearchbar'
+import CardCandidate from '../components/CardCandidates/CardCandidate'
+import { getCandidates } from '../services/candidates'
+import * as PATHS from '../utils/paths'
 
 const CandidatesPage = (props) => {
-  const { user } = props;
+  const { user } = props
 
-  const navigate = useNavigate();
-  const [fileteredCandidates, setFilteredCandidates] = useState([]);
-  const [candidatesList, setCandidatesList] = useState([]);
+  const navigate = useNavigate()
+  const [fileteredCandidates, setFilteredCandidates] = useState([])
+  const [candidatesList, setCandidatesList] = useState([])
 
   useEffect(() => {
     !user
       ? navigate(PATHS.LOGINCOMPANYPAGE)
       : getCandidates().then((response) => {
-          setCandidatesList(response.data.getCandidates);
-          setFilteredCandidates(response.data.getCandidates);
-        });
-  }, [navigate, user]);
+          setCandidatesList(response.data.getCandidates)
+          setFilteredCandidates(response.data.getCandidates)
+        })
+  }, [navigate, user])
 
   return (
-    <div className='container bebasNeue'>
+    <div className="container bebasNeue">
       <h1>Candidates</h1>
       <CandidatesSearchbar
         setFilteredCandidates={setFilteredCandidates}
         candidatesList={candidatesList}
       />
-      <div className='flexbox'>
+      <div className="flexbox">
         {fileteredCandidates?.map((getCandidates) => (
           <CardCandidate
             getCandidates={getCandidates}
@@ -38,7 +38,7 @@ const CandidatesPage = (props) => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CandidatesPage;
+export default CandidatesPage
